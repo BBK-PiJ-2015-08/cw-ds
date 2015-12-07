@@ -8,3 +8,7 @@ Point of this -
 3. Avoid NullPointerExceptions
 
 Code must work without throwing any exceptions <- CANNOT use throw exceptions - get around with an if statement and don't break it. if (between range) do x, otherwise {custom error; using enum}
+
+You must run a battery of tests in order to try to pass your own tests; this is to try to get top marks
+
+Test-driven-development: First write the tests that you expect your code to pass. This involves writing every single combination you expect.
