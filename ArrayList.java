@@ -11,7 +11,7 @@ public class ArrayList implements List {
 
 	private final static int DEFAULT_SIZE = 32;
 	protected int currentSizeOfArray;
-	private long numberOfItems = 0;
+	private int numberOfItems = 0;
 	private int i = 0;
 	private int j = 0;
 	private int doubledCount = 0;
@@ -52,9 +52,10 @@ public class ArrayList implements List {
 	public ReturnObject remove(int index) {
 		if (index < 0 || index >= numberOfItems) {
 			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
+		} else if (this.isEmpty()) {
+			return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
 		} else {
-			ReturnObject itemRemoved = new ReturnObjectImpl;
-			itemRemoved = (intArray[index]);
+			ReturnObject itemRemoved = new ReturnObjectImpl(itemRemoved = (intArray[index]));
 			for (i = index+1 ; i<numberOfItems; i++) {
 				intArray[i-1] = intArray[i];
 			}
@@ -90,18 +91,18 @@ public class ArrayList implements List {
 		 * @return an ReturnObject, empty if the operation is successful
 		 *         or containing an appropriate error message otherwise
 		 */
-		if ((numberOfItems(intArray)).equals(0)) {
-			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS)
+		if (numberOfItems==0) {
+			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
 		} else if ((item.equals(null)) || index%1 !=0) {
 			return new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
-		} else if (index < 0 || index>=) {
+		} else if (index < 0 || index>=numberOfItems) {
 			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
 		} else if (intArray[index].equals(null)) {
 			intArray[index] = item;
 			numberOfItems++;
 		} else {
 			j = index;
-			while (j.nextNode != null) {
+			while (!(intArray[j+1].equals(null))) {
 				j++;
 			}
 			while (j>index) {
@@ -147,17 +148,19 @@ public class ArrayList implements List {
 		if (item.equals(null)) {
 			return new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
 		}
-		else if (numberOfItems.equals(currentSizeOfArray)) {
+		else if (numberOfItems == currentSizeOfArray) {
 			increaseSizeTwofold(intArray);
+			intArray[numberOfItems] = item;
+		} else {
 			intArray[numberOfItems] = item;
 		}
 	}
-	public ReturnObject increaseSizeTwofold(ArrayList) {
-		Object[] storageArray<doubledCount> = new Object[currentSizeOfArray*2];
+	public void increaseSizeTwofold() {
+		Object[] storageArray = new Object[currentSizeOfArray * 2];
 		for (int k=0; k<numberOfItems; k++) {
-			storageArray<doubledCount>[k] = intArray[k];
+			storageArray[k] = intArray[k];
 		}
-		intArray = storageArray<doubledCount>;
+		intArray = storageArray;
 		doubledCount++;
 	}
 }

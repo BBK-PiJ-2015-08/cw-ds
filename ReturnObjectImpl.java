@@ -15,13 +15,13 @@ public class ReturnObjectImpl implements ReturnObject {
 	}
 
 	public (ErrorMessage em) {
-		this.em = em;
+		this.obj = em;
 		this.obj = null;
 	}
 
 	@Override
 	public boolean hasError() {
-		return em != ErrorMesage.NO_ERROR;
+		return em != ErrorMessage.NO_ERROR;
 	}
 
 	@Override
