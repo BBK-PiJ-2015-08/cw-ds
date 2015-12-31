@@ -13,6 +13,12 @@ public class ArrayList implements List {
 	private long numberOfItems = 0;
 	private int i = 0;
 	private int j = 0;
+
+	public ArrayList() {
+		intArray = new Object[DEFAULT_SIZE];
+		arraySize = DEFAULT_SIZE;
+	}
+
 	@Override
 	public boolean isEmpty() {
 		//if (this.nextNode == null) {
@@ -33,7 +39,6 @@ public class ArrayList implements List {
 	// nb the below is not using the class, it is indicating that the return value will be an object of type ReturnObject
 	@Override
 	public ReturnObject get(int index) {
-//
 		if (index < 0 || index >= numberOfItems) {
 			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
 		} else {
@@ -46,16 +51,16 @@ public class ArrayList implements List {
 		if (index < 0 || index >= numberOfItems) {
 			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
 		} else {
-			return new ReturnObjectImpl(intArray[index]);
-			//Will return break the block?
-			intArray[index] = null;
+			ReturnObject itemRemoved = new ReturnObjectImpl;
+			itemRemoved = (intArray[index]);
 			for (i = index+1 ; i<numberOfItems; i++) {
 				intArray[i-1] = intArray[i];
 			}
+			intArray[numberOfItems] = null;
 			numberOfItems--;
+			return itemRemoved;
 		}
 	}
-
 
 	@Override
 	public ReturnObject add(int index, Object item) {
