@@ -14,6 +14,7 @@ public class ArrayList implements List {
 	private long numberOfItems = 0;
 	private int i = 0;
 	private int j = 0;
+	private int doubledCount = 0;
 
 	public ArrayList() {
 		intArray = new Object[DEFAULT_SIZE];
@@ -152,6 +153,11 @@ public class ArrayList implements List {
 	}
 
 	public ReturnObject increaseSizeTwofold(ArrayList) {
-
+		Object[] storageArray<doubledCount> = new Object[currentSizeOfArray*2];
+		for (int k=0; k<numberOfItems; k++) {
+			storageArray<doubledCount>[k] = intArray[k];
+		}
+		intArray = storageArray<doubledCount>;
+		doubledCount++;
 	}
 }
