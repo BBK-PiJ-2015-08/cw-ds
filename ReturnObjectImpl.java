@@ -1,4 +1,11 @@
 public class ReturnObjectImpl implements ReturnObject {
+	/**
+	 * This class must have two constructors, each of them with only 1
+	 * parameter. The constructor used for successful operations must
+	 * receive an Object (java.lang.object) and the constructor used
+	 * for failed operations must receive an ErrorMessage as its only
+	 * parameter
+	 */
 	private Object obj;
 	private ErrorMessage em;
 

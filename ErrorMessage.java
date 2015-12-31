@@ -1,3 +1,6 @@
+/**
+ * Part of src code provided.
+ */
 public enum ErrorMessage {
     /**
      * No error. 
