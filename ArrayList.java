@@ -10,13 +10,14 @@ public class ArrayList implements List {
 	private Object[] intArray;
 
 	private final static int DEFAULT_SIZE = 32;
+	protected int currentSizeOfArray;
 	private long numberOfItems = 0;
 	private int i = 0;
 	private int j = 0;
 
 	public ArrayList() {
 		intArray = new Object[DEFAULT_SIZE];
-		arraySize = DEFAULT_SIZE;
+		currentSizeOfArray = DEFAULT_SIZE;
 	}
 
 	@Override
@@ -145,7 +146,12 @@ public class ArrayList implements List {
 		if (item.equals(null)) {
 			return new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
 		}
-		else if ()
-		if ((intArray(numberOfItems+1)).)
+		else if (numberOfItems.equals(currentSizeOfArray)) {
+			increaseSizeTwofold(intArray);
+		}
+	}
+
+	public ReturnObject increaseSizeTwofold(ArrayList) {
+
 	}
 }
