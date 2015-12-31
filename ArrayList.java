@@ -10,7 +10,9 @@ public class ArrayList implements List {
 	private Object[] intArray;
 
 	private final static int DEFAULT_SIZE = 32;
-	private long numberOfItems = 0
+	private long numberOfItems = 0;
+	private int i = 0;
+	private int j = 0;
 	@Override
 	public boolean isEmpty() {
 		if (this.nextNode == null) {
@@ -84,35 +86,46 @@ public class ArrayList implements List {
 			return new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
 		} else if (index < 0 || index>=) {
 			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
-		}
-
-		index.equals(numberOfItems+1) {
-			private Object[] storageArray = new
-		}
-		/**if(numberOfItems==0) {
-			private Object[] storageArray = new storageArray[32];
+		} else if (intArray[index].equals(null)) {
+			intArray[index] = item;
+			numberOfItems++;
 		} else {
-			private Object[] storageArray =  new storageArray[numberOfItems*2];
+			j = index;
+			while (j.nextNode != null) {
+				j++;
+			}
+			while (j>index) {
+				intArray[j+1] = intArray[j];
+				j--;
+			}
+			intArray[index] = item;
+			numberOfItems++;
 		}
-		if (index >= 0 )
-		Have to create another array, and emulate (but DON'T USE) arraycopy
-		* when you hit the end of the array, you should double the size of the array
-		 * to add your next element. this is done by creating a second array,
-		 * copying the first array into that, and adding the last element to the end
-		 * of the array.
-		 * Sounds liek this would add an item to a specified point in the array then
-		 * shift the subsequent elements along one. If there are no elements, create the
-		 * first element (and assign size)
-		 * Also use this to increment the numberOfItems counter up by one each time an
-		 * element is added
-		 **/
-
-		numberOfItems++;
 	}
-
+	/**
+	Have to create another array, and emulate (but DON'T USE) arraycopy
+			* when you hit the end of the array, you should double the size of the array
+													   * to add your next element. this is done by creating a second array,
+											   * copying the first array into that, and adding the last element to the end
+													   * of the array.
+													   * Sounds liek this would add an item to a specified point in the array then
+													   * shift the subsequent elements along one. If there are no elements, create the
+											   * first element (and assign size)
+	* Also use this to increment the numberOfItems counter up by one each time an
+	* element is added
+	**/
 	@Override
 	public ReturnObject add(Object item) {
 		//sounds like this would default to the end of the array
-
+//		index.equals(numberOfItems+1) {
+//			private Object[] storageArray = new
+//		}
+		/**if(numberOfItems==0) {
+		 private Object[] storageArray = new storageArray[32];
+		 } else {
+		 private Object[] storageArray =  new storageArray[numberOfItems*2];
+		 }
+		 if (index >= 0 )
+		 */
 	}
 }
