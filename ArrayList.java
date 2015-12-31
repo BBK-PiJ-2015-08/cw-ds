@@ -149,9 +149,9 @@ public class ArrayList implements List {
 		}
 		else if (numberOfItems.equals(currentSizeOfArray)) {
 			increaseSizeTwofold(intArray);
+			intArray[numberOfItems] = item;
 		}
 	}
-
 	public ReturnObject increaseSizeTwofold(ArrayList) {
 		Object[] storageArray<doubledCount> = new Object[currentSizeOfArray*2];
 		for (int k=0; k<numberOfItems; k++) {
