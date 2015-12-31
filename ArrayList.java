@@ -15,9 +15,12 @@ public class ArrayList implements List {
 	private int j = 0;
 	@Override
 	public boolean isEmpty() {
-		if (this.nextNode == null) {
+		//if (this.nextNode == null) {
+		//	return true;
+		if (numberOfItems==0) {
 			return true;
-		} else {
+		}
+	else {
 			return false;
 		}
 	}
@@ -116,10 +119,17 @@ public class ArrayList implements List {
 	**/
 	@Override
 	public ReturnObject add(Object item) {
-		//sounds like this would default to the end of the array
-//		index.equals(numberOfItems+1) {
-//			private Object[] storageArray = new
-//		}
+		/**
+		 * Adds an element at the end of the list.
+		 *
+		 * If a null object is provided to insert in the list, the
+		 * request must be ignored and an appropriate error must be
+		 * returned.
+		 *
+		 * @param item the value to insert into the list
+		 * @return an ReturnObject, empty if the operation is successful
+		 *         or containing an appropriate error message otherwise
+		 */
 		/**if(numberOfItems==0) {
 		 private Object[] storageArray = new storageArray[32];
 		 } else {
@@ -127,5 +137,10 @@ public class ArrayList implements List {
 		 }
 		 if (index >= 0 )
 		 */
+		if (item.equals(null)) {
+			return new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
+		}
+		else if ()
+		if ((intArray(numberOfItems+1)).)
 	}
 }
