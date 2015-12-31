@@ -48,6 +48,7 @@ public class ArrayList implements List {
 				intArray[i-1] = intArray[i];
 			}
 			numberOfItems--;
+		}
 	}
 
 
