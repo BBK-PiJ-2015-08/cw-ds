@@ -87,16 +87,16 @@ public class ArrayList implements List {
 		 */
 		if (numberOfItems==0) {
 			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
-		} else if ((item.equals(null)) || index%1 !=0) {
 			return new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
 		} else if (index < 0 || index>=numberOfItems) {
 			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
-		} else if (intArray[index].equals(null)) {
+		} else if ((intArray[index]) == null) {
 			intArray[index] = item;
 			numberOfItems++;
+			return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
 		} else {
 			j = index;
-			while (!(intArray[j+1].equals(null))) {
+			while (!((intArray[j+1]) == null)) {
 				j++;
 			}
 			while (j>index) {
@@ -105,6 +105,7 @@ public class ArrayList implements List {
 			}
 			intArray[index] = item;
 			numberOfItems++;
+			return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
 		}
 	}
 	/**
@@ -123,16 +124,19 @@ public class ArrayList implements List {
 		 * @return an ReturnObject, empty if the operation is successful
 		 *         or containing an appropriate error message otherwise
 		 */
-		if (item.equals(null)) {
+		if (item == null) {
 			return new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
 		}
 		else if (numberOfItems == currentSizeOfArray) {
 			increaseSizeTwofold(intArray);
 			intArray[numberOfItems] = item;
 			numberOfItems++;
+			return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
+
 		} else {
 			intArray[numberOfItems] = item;
 			numberOfItems++;
+			return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
 		}
 	}
 	public void increaseSizeTwofold(Object[] intArray) {
