@@ -7,6 +7,7 @@
  */
 public class LinkedList implements List {
     private int counter;
+    private int nodeAt;
 
     public LinkedList() {
         first = null;
@@ -17,7 +18,6 @@ public class LinkedList implements List {
     //not done
     /**
      * Returns true if the list is empty, false otherwise.
-     *
      * @return true if the list is empty, false otherwise.
      */
     public boolean isEmpty() {
@@ -29,11 +29,9 @@ public class LinkedList implements List {
     }
     /**
      * Returns the number of items currently in the list.
-     *
      * @return the number of items currently in the list
      */
     @Override
-    //not done
     public int size() {
         if (!isEmpty()) {
             counter = 1;
@@ -65,10 +63,13 @@ public class LinkedList implements List {
         } else if (index<0 || index>numberOfNodes){
             return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
         } else {
-            // Code to return the element at the given position. Check index starting
-            // at 0 errors
+            node = first;
+            while (nodeAt < index) {
+                node = node.next;
+                nodeAt++;
+            }
+            return node;
         }
-        return null;
     }
     /**
      * Returns the elements at the given position and removes it
@@ -120,6 +121,7 @@ public class LinkedList implements List {
     @Override
     //not done
     public ReturnObject add(int index, Object item) {
+        //don't forget invalid argument error
         if (index < 0 || index > numberOfNodes) {
                 return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
             }
@@ -143,7 +145,6 @@ public class LinkedList implements List {
                         return an empty ReturnObject
             }
         }
-        return ;
     }
     /**
      * Adds an element at the end of the list.
@@ -159,6 +160,7 @@ public class LinkedList implements List {
     @Override
     //not done
     public ReturnObject add(Object item) {
+        //don't forget invalid argument error
         if (this.next == null) {
             this.next = item;
         } else {
