@@ -88,7 +88,7 @@ public class LinkedList implements List {
             return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
         }
         else if (index < 0 || index>=numberOfNodes) {
-            return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS)
+            return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
         } else if (numberOfNodes == 1) {
             /** (there is only one item in list) {
              store it
@@ -169,9 +169,11 @@ public class LinkedList implements List {
             if () {
                 return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
             } else {
+                /**
                 insert as first node
                 increment numberofnodes up by 1
                 return an empty ReturnObject
+                 */
             }
         } else {
             /**
