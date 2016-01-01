@@ -34,11 +34,7 @@ public class LinkedList implements List {
      */
     @Override
     public int size() {
-        if (!isEmpty()) {
-            return numberOfNodes;
-        } else {
-            return 0;
-        }
+       return numberOfNodes;
     }
     //Do I need a HasNext type method?
     /**
