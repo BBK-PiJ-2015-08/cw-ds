@@ -17,6 +17,7 @@ public class FunctionalArrayList extends ArrayList implements FunctionalList {
 	}
 }
 
+/**
 class A {
 
 
@@ -26,7 +27,8 @@ class B extends A {
 }
 /**class C extends B{
 	CANNOT do
-}**/
+}
 class C {
 	B b;
 }
+*/
