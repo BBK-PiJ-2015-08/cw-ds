@@ -62,7 +62,7 @@ public class LinkedList implements List {
     public ReturnObject get(int index) {
         if (!isEmpty()) {
             return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
-        } else if (x<0 || x>numberOfNodes){
+        } else if (index<0 || index>numberOfNodes){
             return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
         } else {
             // Code to return the element at the given position. Check index starting
@@ -87,7 +87,7 @@ public class LinkedList implements List {
     public ReturnObject remove(int index) {
         if (!isEmpty()) {
             return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
-        } else if (x < 0 || x>numberOfNodes) {
+        } else if (indexx < 0 || index>numberOfNodes) {
             return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS)
         } else {
             go to the element at the given position
@@ -120,7 +120,7 @@ public class LinkedList implements List {
     @Override
     //not done
     public ReturnObject add(int index, Object item) {
-        if (x < 0 || x > numberOfNodes) {
+        if (index < 0 || index > numberOfNodes) {
                 return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
             }
 
