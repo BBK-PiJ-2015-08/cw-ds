@@ -6,6 +6,12 @@
  * your code not compiling with the automatic tests used for grading.
  */
 public class LinkedList implements List {
+    private int counter;
+
+    public LinkedList() {
+        first = null;
+        numberOfNodes = 0;
+    }
 
     @Override
     //not done
@@ -15,7 +21,11 @@ public class LinkedList implements List {
      * @return true if the list is empty, false otherwise.
      */
     public boolean isEmpty() {
-        return false;
+        if (first == null) {
+            return true;
+        } else {
+            return false;
+        }
     }
     /**
      * Returns the number of items currently in the list.
@@ -25,7 +35,16 @@ public class LinkedList implements List {
     @Override
     //not done
     public int size() {
-        return 0;
+        if (!isEmpty()) {
+            counter = 1;
+            while (node.next != null) {
+                node = node.next;
+                counter++;
+            }
+            return counter;
+        } else {
+            return 0;
+        }
     }
     //Do I need a HasNext type method?
     /**
@@ -41,6 +60,14 @@ public class LinkedList implements List {
     @Override
     //not done
     public ReturnObject get(int index) {
+        if (!isEmpty()) {
+            return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
+        } else if (x<0 || x>numberOfNodes){
+            return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
+        } else {
+            // Code to return the element at the given position. Check index starting
+            // at 0 errors
+        }
         return null;
     }
     /**
@@ -58,7 +85,19 @@ public class LinkedList implements List {
     @Override
     //not done
     public ReturnObject remove(int index) {
-        return null;
+        if (!isEmpty()) {
+            return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
+        } else if (x < 0 || x>numberOfNodes) {
+            return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS)
+        } else {
+            go to the element at the given position
+                    store the element
+                    delete the element
+                    shift everything subsequent back 1
+                    minus one from the number of elements
+                    return the removed element
+
+        }
     }
     /**
      * Adds an element to the list, inserting it at the given
@@ -81,6 +120,29 @@ public class LinkedList implements List {
     @Override
     //not done
     public ReturnObject add(int index, Object item) {
+        if (x < 0 || x > numberOfNodes) {
+                return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
+            }
+
+        else if (isEmpty()) {
+            if (given position isn't 0) {
+                return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
+            } else {
+                insert as first node
+                        increment numberofnodes up by 1
+                        return an empty ReturnObject
+            }
+        }
+        else {
+                start at first node
+                        go along to final position
+                        shift everything up one until you are back at the element for which
+                        the index was specified
+                        add the item at that index
+                        increment numberofnodes up by 1
+                        return an empty ReturnObject
+            }
+        }
         return ;
     }
     /**
