@@ -87,24 +87,37 @@ public class LinkedList implements List
         if (!isEmpty()) {
             return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
         }
-        // in the line below, i use index>numberOfNodes instead of >=
-        // because numberOfNodes starts at 1 but index position starts at
-        // 0
-        else if (index < 0 || index>numberOfNodes) {
+        else if (index < 0 || index>=numberOfNodes) {
             return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS)
-        } else {
-            node = head;
-            nodeAt = 0;
-            while (nodeAt < index) {
-                node = node.next;
+        } else if (there is only one item in list) {
+            store it
+                    set this item, the head to null
+                    increment the number of nodes down one.
+                    return the stored removed element
+        } else if (the item to be removed is the head){
+            store it
+                    set the head to the next item
+                    while next.next is not equal to null, assign the next element
+                    to this element
+                    increment down the numberofnodes
+                    return the stored removed element
+        }
+            //All other cases
+            else {
+                LinkedListNode current = head;
+                nodeAt = 0;
+                while (nodeAt < index) {
+                current = current.next;
                 nodeAt++;
             }
             // check if the below should be this.node
-            ReturnObject elementRemoved = new ReturnObjectImpl(node);
+            ReturnObject elementRemoved = new ReturnObjectImpl(current);
             while (nodeAt < numberOfNodes) {
-//                node = value of next node
+                current = current.next;
                 nodeAt++;
-//            } node = delete this node
+            } while (nodeAt = numberOfNodes) {
+            }
+                node = delete this node
                 numberOfNodes--;
                 return elementRemoved;
 
