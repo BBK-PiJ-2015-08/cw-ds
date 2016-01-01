@@ -55,7 +55,7 @@ public class ArrayList implements List {
 		} else if (this.isEmpty()) {
 			return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
 		} else {
-			ReturnObject itemRemoved = new ReturnObjectImpl(itemRemoved = (intArray[index]));
+			ReturnObject itemRemoved = new ReturnObjectImpl(intArray[index]);
 			for (i = index+1 ; i<numberOfItems; i++) {
 				intArray[i-1] = intArray[i];
 			}
@@ -67,12 +67,6 @@ public class ArrayList implements List {
 
 	@Override
 	public ReturnObject add(int index, Object item) {
-		//The below line may cause problems where array has already been
-		//declared. n.b. size is numberOfItems<- index problem if this==0
-		//Also want to avoid doubling if array is not yet full
-		//Need to count the size of the array (even if numberofitems is smaller)
-		//What if it's specifying to add to a specific index when there are no
-		//items in the array?
 		/**
 		 * Adds an element to the list, inserting it at the given
 		 * position. The indeces of elements at and after that position
@@ -114,17 +108,8 @@ public class ArrayList implements List {
 		}
 	}
 	/**
-	Have to create another array, and emulate (but DON'T USE) arraycopy
-			* when you hit the end of the array, you should double the size of the array
-													   * to add your next element. this is done by creating a second array,
-											   * copying the first array into that, and adding the last element to the end
-													   * of the array.
-													   * Sounds liek this would add an item to a specified point in the array then
-													   * shift the subsequent elements along one. If there are no elements, create the
-											   * first element (and assign size)
-	* Also use this to increment the numberOfItems counter up by one each time an
-	* element is added
-	**/
+	 * If there are no elements, create the first element (and assign size)
+	*/
 	@Override
 	public ReturnObject add(Object item) {
 		/**
@@ -138,24 +123,19 @@ public class ArrayList implements List {
 		 * @return an ReturnObject, empty if the operation is successful
 		 *         or containing an appropriate error message otherwise
 		 */
-		/**if(numberOfItems==0) {
-		 private Object[] storageArray = new storageArray[32];
-		 } else {
-		 private Object[] storageArray =  new storageArray[numberOfItems*2];
-		 }
-		 if (index >= 0 )
-		 */
 		if (item.equals(null)) {
 			return new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
 		}
 		else if (numberOfItems == currentSizeOfArray) {
 			increaseSizeTwofold(intArray);
 			intArray[numberOfItems] = item;
+			numberOfItems++;
 		} else {
 			intArray[numberOfItems] = item;
+			numberOfItems++;
 		}
 	}
-	public void increaseSizeTwofold() {
+	public void increaseSizeTwofold(Object[] intArray) {
 		Object[] storageArray = new Object[currentSizeOfArray * 2];
 		for (int k=0; k<numberOfItems; k++) {
 			storageArray[k] = intArray[k];
