@@ -5,12 +5,13 @@
  * about this because using the wrong constructors may result in
  * your code not compiling with the automatic tests used for grading.
  */
-public class LinkedList implements List {
-    private int counter;
+public class LinkedList implements List 
     private int nodeAt;
+    private int numberOfNodes;
+    private LinkedListNode head;
 
     public LinkedList() {
-        first = null;
+        head = null;
         numberOfNodes = 0;
     }
 
@@ -21,7 +22,7 @@ public class LinkedList implements List {
      * @return true if the list is empty, false otherwise.
      */
     public boolean isEmpty() {
-        if (first == null) {
+        if (head == null) {
             return true;
         } else {
             return false;
@@ -34,12 +35,7 @@ public class LinkedList implements List {
     @Override
     public int size() {
         if (!isEmpty()) {
-            counter = 1;
-            while (node.next != null) {
-                node = node.next;
-                counter++;
-            }
-            return counter;
+            return numberOfNodes;
         } else {
             return 0;
         }
@@ -63,7 +59,7 @@ public class LinkedList implements List {
         } else if (index<0 || index>numberOfNodes){
             return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
         } else {
-            node = first;
+            node = head;
             nodeAt = 0;
             while (nodeAt < index) {
                 node = node.next;
@@ -96,7 +92,7 @@ public class LinkedList implements List {
         else if (index < 0 || index>numberOfNodes) {
             return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS)
         } else {
-            node = first;
+            node = head;
             nodeAt = 0;
             while (nodeAt < index) {
                 node = node.next;
