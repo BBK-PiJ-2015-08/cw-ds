@@ -5,7 +5,7 @@
  * about this because using the wrong constructors may result in
  * your code not compiling with the automatic tests used for grading.
  */
-public class LinkedList implements List 
+public class LinkedList implements List
     private int nodeAt;
     private int numberOfNodes;
     private LinkedListNode head;
@@ -54,18 +54,19 @@ public class LinkedList implements List
     @Override
     //not done
     public ReturnObject get(int index) {
-        if (!isEmpty()) {
+        if (isEmpty()) {
             return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
         } else if (index<0 || index>numberOfNodes){
             return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
         } else {
-            node = head;
+            LinkedListNode current = head;
             nodeAt = 0;
             while (nodeAt < index) {
-                node = node.next;
+                current = current.next;
                 nodeAt++;
             }
-            return node;
+            //check this is returning in the right format
+            return current;
         }
     }
     /**
