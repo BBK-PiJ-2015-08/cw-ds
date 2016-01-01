@@ -89,16 +89,29 @@ public class LinkedList implements List
         }
         else if (index < 0 || index>=numberOfNodes) {
             return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS)
-        } else if/** (there is only one item in list) {
-            store it
-                    set this item, the head to null
-                    increment the number of nodes down one.
-                    return the stored removed element
+        } else if (numberOfNodes == 1) {
+            /** (there is only one item in list) {
+             store it
+             set this item, the head to null
+             increment the number of nodes down one.
+             return the stored removed element
+             */
+            ReturnObject elementRemoved = new ReturnObjectImpl(current);
+            head = null;
+            numberOfNodes--;
+            return elementRemoved;
+        } else if (index == 0) {
+            ReturnObject elementRemoved = new ReturnObjectImpl(current);
+            head = current.next;
+            numberOfNodes--;
+            return elementRemoved;
+        }
+        /**
         } else if (the item to be removed is the head){
             store it
                     set the head to the next item
-                    while next.next is not equal to null, assign the next element
-                    to this element
+                    while next.next is not equal to null, make the next element
+                    the head
                     increment down the numberofnodes
                     return the stored removed element
          }
