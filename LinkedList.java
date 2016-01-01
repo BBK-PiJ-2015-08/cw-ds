@@ -64,6 +64,7 @@ public class LinkedList implements List {
             return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
         } else {
             node = first;
+            nodeAt = 0;
             while (nodeAt < index) {
                 node = node.next;
                 nodeAt++;
@@ -88,15 +89,34 @@ public class LinkedList implements List {
     public ReturnObject remove(int index) {
         if (!isEmpty()) {
             return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
-        } else if (indexx < 0 || index>numberOfNodes) {
+        }
+        // in the line below, i use index>numberOfNodes instead of >=
+        // because numberOfNodes starts at 1 but index position starts at
+        // 0
+        else if (index < 0 || index>numberOfNodes) {
             return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS)
         } else {
-            go to the element at the given position
-                    store the element
-                    delete the element
+            node = first;
+            nodeAt = 0;
+            while (nodeAt < index) {
+                node = node.next;
+                nodeAt++;
+            }
+            // check if the below should be this.node
+            ReturnObject elementRemoved = new ReturnObjectImpl(node);
+            while (nodeAt < numberOfNodes) {
+//                node = value of next node
+                nodeAt++;
+//            } node = delete this node
+                numberOfNodes--;
+                return elementRemoved;
+
+//            go to the element at the given position
+//                  store the element
                     shift everything subsequent back 1
-                    minus one from the number of elements
-                    return the removed element
+                    delete the final element
+//                    minus one from the number of elements
+//                    return the removed element
 
         }
     }
