@@ -89,7 +89,7 @@ public class LinkedList implements List
         }
         else if (index < 0 || index>=numberOfNodes) {
             return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS)
-        } else if (there is only one item in list) {
+        } else if/** (there is only one item in list) {
             store it
                     set this item, the head to null
                     increment the number of nodes down one.
@@ -101,33 +101,30 @@ public class LinkedList implements List
                     to this element
                     increment down the numberofnodes
                     return the stored removed element
-        }
-            //All other cases
+         }
+         */
             else {
                 LinkedListNode current = head;
                 nodeAt = 0;
                 while (nodeAt < index) {
-                current = current.next;
-                nodeAt++;
-            }
-            // check if the below should be this.node
-            ReturnObject elementRemoved = new ReturnObjectImpl(current);
-            while (nodeAt < numberOfNodes) {
-                current = current.next;
-                nodeAt++;
-            } while (nodeAt = numberOfNodes) {
-            }
-                node = delete this node
+                    current = current.next;
+                    nodeAt++;
+                }
+                ReturnObject elementRemoved = new ReturnObjectImpl(current);
+                while (nodeAt < numberOfNodes) {
+                    current = current.next;
+                    nodeAt++;
+                } while (nodeAt = numberOfNodes) {
+                    current = null;
+                }
                 numberOfNodes--;
                 return elementRemoved;
-
 //            go to the element at the given position
 //                  store the element
-                    shift everything subsequent back 1
-                    delete the final element
+//                    shift everything subsequent back 1
+//                    delete the final element
 //                    minus one from the number of elements
 //                    return the removed element
-
         }
     }
     /**
