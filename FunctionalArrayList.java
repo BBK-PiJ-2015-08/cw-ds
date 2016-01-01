@@ -12,7 +12,7 @@ public class FunctionalArrayList extends ArrayList implements FunctionalList {
 	}
 
 	@Override
-	public FunctionAList rest() {
+	public FunctionalList rest() {
 		return null;
 	}
 }
