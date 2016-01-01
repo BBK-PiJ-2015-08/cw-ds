@@ -23,8 +23,6 @@ public class ArrayList implements List {
 
 	@Override
 	public boolean isEmpty() {
-		//if (this.nextNode == null) {
-		//	return true;
 		if (numberOfItems==0) {
 			return true;
 		}
@@ -38,7 +36,6 @@ public class ArrayList implements List {
 		return numberOfItems;
 	}
 
-	// nb the below is not using the class, it is indicating that the return value will be an object of type ReturnObject
 	@Override
 	public ReturnObject get(int index) {
 		if (index < 0 || index >= numberOfItems) {
@@ -87,6 +84,7 @@ public class ArrayList implements List {
 		 */
 		if (numberOfItems==0) {
 			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
+		} else if ((item == null) || index%1 !=0) {
 			return new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
 		} else if (index < 0 || index>=numberOfItems) {
 			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
