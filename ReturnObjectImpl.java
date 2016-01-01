@@ -7,30 +7,34 @@ public class ReturnObjectImpl implements ReturnObject {
 	 * parameter
 	 */
 	private Object obj;
-	private ErrorMessage em;
+	private ErrorMessage err;
 
 	public ReturnObjectImpl(Object obj) {
 		this.obj = obj;
-		this.em = ErrorMessage.NO_ERROR;
+		//this.em = ErrorMessage.NO_ERROR;
 	}
 
-	public (ErrorMessage em) {
-		this.obj = em;
-		this.obj = null;
+	public ReturnObjectImpl(ErrorMessage err) {
+		this.err = err;
 	}
+
+	//public (ErrorMessage em) {
+	//	this.obj = em;
+	//	this.obj = null;
+	//}
 
 	@Override
 	public boolean hasError() {
-		return em != ErrorMessage.NO_ERROR;
+		return false;
 	}
 
 	@Override
 	public ErrorMessage getError() {
-		return em;
+		return null;
 	}
 
 	@Override
 	public Object getReturnValue() {
-		return obj;
+		return null;
 	}
 }
