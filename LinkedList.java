@@ -5,7 +5,7 @@
  * about this because using the wrong constructors may result in
  * your code not compiling with the automatic tests used for grading.
  */
-public class LinkedList implements List
+public class LinkedList implements List {
     private int nodeAt;
     private int numberOfNodes;
     private LinkedListNode head;
@@ -163,29 +163,29 @@ public class LinkedList implements List
     public ReturnObject add(int index, Object item) {
         //don't forget invalid argument error
         if (index < 0 || index > numberOfNodes) {
-                return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
-            }
-
-        else if (isEmpty()) {
-            if (given position isn't 0) {
+            return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
+        } else if (isEmpty()) {
+            //given position isn't 0
+            if () {
                 return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
             } else {
                 insert as first node
-                        increment numberofnodes up by 1
-                        return an empty ReturnObject
+                increment numberofnodes up by 1
+                return an empty ReturnObject
             }
-        }
-        else {
-                start at first node
-                        go along to final position
-                        shift everything up one until you are back at the element for which
-                        the index was specified
-                        add the item at that index
-                        increment numberofnodes up by 1
-                        return an empty ReturnObject
-            }
+        } else {
+            /**
+             start at first node
+             go along to final position
+             shift everything up one until you are back at the element for which
+             the index was specified
+             add the item at that index
+             increment numberofnodes up by 1
+             return an empty ReturnObject
+             */
         }
     }
+
     /**
      * Adds an element at the end of the list.
      *
