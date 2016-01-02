@@ -92,13 +92,13 @@ public class LinkedList implements List {
              increment the number of nodes down one.
              return the stored removed element
              */
-            ReturnObject elementRemoved = new ReturnObjectImpl(current.getValue());
+            ReturnObject elementRemoved = new ReturnObjectImpl(head.getValue());
             head = null;
             numberOfNodes--;
             return elementRemoved;
         } else if (index == 0) {
-            ReturnObject elementRemoved = new ReturnObjectImpl(current.getValue());
-            head = current.getNext();
+            ReturnObject elementRemoved = new ReturnObjectImpl(head.getValue());
+            head = head.getNext();
             numberOfNodes--;
             return elementRemoved;
         }
