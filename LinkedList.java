@@ -156,8 +156,12 @@ public class LinkedList implements List {
     @Override
     //not done
     public ReturnObject add(int index, Object item) {
-        //don't forget invalid argument error
-        if (index < 0 || index > numberOfNodes) {
+        //don't forget invalid argument error: Added. Precedence for Invalid
+        //Arguement over Index_Out_Of_bounds?
+        if (item == null) {
+            return new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
+        }
+        else if (index < 0 || index > numberOfNodes) {
             return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
         } else if (isEmpty()) {
             if (index == 0) {
