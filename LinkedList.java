@@ -171,14 +171,16 @@ public class LinkedList implements List {
                 return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
             } else {
                 nodeAt = 0;
-                while (current.getNext() != null) {
+                while (nodeAt < numberOfNodes) {
                     Node current = current.getNext();
                     nodeAt++;
                 }
                 while (nodeAt > index) {
                     // is the line below assigning a value or just shifting
                     //the position in the linkedlist
-                    current.getNext() = current;
+                    //Just struggling to make the current node take the
+                    //value of the previous node
+                    Node current = current.setNext(current);
                     nodeAt--;
                 }
                 current = item;
