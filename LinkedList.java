@@ -6,9 +6,9 @@
  * your code not compiling with the automatic tests used for grading.
  */
 public class LinkedList implements List {
-    private int nodeAt;
-    private int numberOfNodes;
-    private LinkedListNode head;
+    protected int nodeAt;
+    protected int numberOfNodes;
+    protected Node head;
 
     public LinkedList() {
         head = null;
@@ -22,7 +22,7 @@ public class LinkedList implements List {
      * @return true if the list is empty, false otherwise.
      */
     public boolean isEmpty() {
-        if (head == null) {
+        if (size() == 0) {
             return true;
         } else {
             return false;
@@ -52,17 +52,17 @@ public class LinkedList implements List {
     public ReturnObject get(int index) {
         if (isEmpty()) {
             return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
-        } else if (index<0 || index>numberOfNodes){
+        } else if (index<0 || index>=numberOfNodes){
             return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
         } else {
-            LinkedListNode current = head;
+            Node current = head;
             nodeAt = 0;
             while (nodeAt < index) {
-                current = current.next;
+                current = current.getNext();
                 nodeAt++;
             }
             //check this is returning in the right format
-            return current;
+            return new ReturnObjectImpl(current.getValue());
         }
     }
     /**
@@ -92,13 +92,13 @@ public class LinkedList implements List {
              increment the number of nodes down one.
              return the stored removed element
              */
-            ReturnObject elementRemoved = new ReturnObjectImpl(current);
+            ReturnObject elementRemoved = new ReturnObjectImpl(current.getValue());
             head = null;
             numberOfNodes--;
             return elementRemoved;
         } else if (index == 0) {
-            ReturnObject elementRemoved = new ReturnObjectImpl(current);
-            head = current.next;
+            ReturnObject elementRemoved = new ReturnObjectImpl(current.getValue());
+            head = current.getNext();
             numberOfNodes--;
             return elementRemoved;
         }
@@ -113,19 +113,18 @@ public class LinkedList implements List {
          }
          */
             else {
-                LinkedListNode current = head;
+                Node current = head;
                 nodeAt = 0;
                 while (nodeAt < index) {
-                    current = current.next;
+                    current = current.getNext();
                     nodeAt++;
                 }
-                ReturnObject elementRemoved = new ReturnObjectImpl(current);
+                ReturnObject elementRemoved = new ReturnObjectImpl(current.getValue());
                 while (nodeAt < numberOfNodes) {
-                    current = current.next;
+                    current.setNext() = current.getNext();
                     nodeAt++;
-                } while (nodeAt = numberOfNodes) {
-                    current = null;
                 }
+                current = null;
                 numberOfNodes--;
                 return elementRemoved;
 //            go to the element at the given position
@@ -161,26 +160,42 @@ public class LinkedList implements List {
         if (index < 0 || index > numberOfNodes) {
             return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
         } else if (isEmpty()) {
-            //given position isn't 0
-            if () {
-                return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
+            if (index == 0) {
+                head = new Node(item);
+                numberOfNodes++;
+                //check if this should be returning the item
+                return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
             } else {
+                nodeAt = 0;
+                while (current.getNext() != null) {
+                    Node current = current.getNext();
+                    nodeAt++;
+                }
+                while (nodeAt > index) {
+                    // is the line below assigning a value or just shifting
+                    //the position in the linkedlist
+                    current.getNext() = current;
+                    nodeAt--;
+                }
+                current = item;
+                numberOfNodes++;
+                return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
                 /**
-                insert as first node
+                 start at first node
+                 go along to final position
+                 shift everything forward one until you are back at the element for which
+                 the index was specified
+                 add the item at that index
+                 increment numberofnodes up by 1
+                 return an empty ReturnObject
+                 */
+                /**
+                shift node at end, followed by each previous node until nodeAt = index, forward one. Recursive?
+                 while nodeAt = index, add Object item to this node
                 increment numberofnodes up by 1
                 return an empty ReturnObject
                  */
             }
-        } else {
-            /**
-             start at first node
-             go along to final position
-             shift everything up one until you are back at the element for which
-             the index was specified
-             add the item at that index
-             increment numberofnodes up by 1
-             return an empty ReturnObject
-             */
         }
     }
 
@@ -199,11 +214,28 @@ public class LinkedList implements List {
     //not done
     public ReturnObject add(Object item) {
         //don't forget invalid argument error
+        if (item == null) {
+            return new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
+        } else if (head == null) {
+            head = item;
+            numberOfNodes++;
+            return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
+        } else {
+            Node current = head;
+            while (current.getNext() != null) {
+                current = current.getNext();
+            }
+            current.setNext(item);
+            numberOfNodes++;
+            return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
+        }
+        /**
         if (this.next == null) {
             this.next = item;
         } else {
             this.next.add(item);
         }
         return null;
+         */
     }
 }
