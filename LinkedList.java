@@ -103,14 +103,13 @@ public class LinkedList implements List {
             return elementRemoved;
         }
         /**
-        } else if (the item to be removed is the head){
+            else if (the item to be removed is the head)
             store it
                     set the head to the next item
                     while next.next is not equal to null, make the next element
                     the head
                     increment down the numberofnodes
                     return the stored removed element
-         }
          */
             else {
                 Node current = head;
@@ -127,14 +126,15 @@ public class LinkedList implements List {
                 current = null;
                 numberOfNodes--;
                 return elementRemoved;
+        }
+    }
 //            go to the element at the given position
 //                  store the element
 //                    shift everything subsequent back 1
 //                    delete the final element
 //                    minus one from the number of elements
 //                    return the removed element
-        }
-    }
+
     /**
      * Adds an element to the list, inserting it at the given
      * position. The indeces of elements at and after that position
@@ -163,18 +163,33 @@ public class LinkedList implements List {
         }
         else if (index < 0 || index > numberOfNodes) {
             return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
-        } else if (isEmpty()) {
+        }
+        Node storageNode = new Node(item);
+        else if (isEmpty()) {
             if (index == 0) {
-                head = new Node(item);
+                head = storageNode;
                 numberOfNodes++;
                 //check if this should be returning the item
                 return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
-            } else {
+            }
+        } else {
+                /**
                 nodeAt = 0;
                 while (nodeAt < numberOfNodes) {
                     Node current = current.getNext();
                     nodeAt++;
                 }
+                 */
+                    for (int i = 0; i < (index-1); i++) {
+                        Node current = current.getNext();
+                    }
+                    storageNode.setNext(current.getNext());
+                    current.setNext(storageNode);
+                    numberOfNodes++;
+                    return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
+        }
+}
+                /**
                 while (nodeAt > index) {
                     // is the line below assigning a value or just shifting
                     //the position in the linkedlist
@@ -183,9 +198,7 @@ public class LinkedList implements List {
                     Node current = current.setNext(current);
                     nodeAt--;
                 }
-                current = item;
-                numberOfNodes++;
-                return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
+                 */
                 /**
                  start at first node
                  go along to final position
@@ -200,10 +213,7 @@ public class LinkedList implements List {
                  while nodeAt = index, add Object item to this node
                 increment numberofnodes up by 1
                 return an empty ReturnObject
-                 */
-            }
-        }
-    }
+                */
 
     /**
      * Adds an element at the end of the list.
