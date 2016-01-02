@@ -121,7 +121,7 @@ public class LinkedList implements List {
                 }
                 ReturnObject elementRemoved = new ReturnObjectImpl(current.getValue());
                 while (nodeAt < numberOfNodes) {
-                    current.setNext() = current.getNext();
+                    current.setNext(current.getNext());
                     nodeAt++;
                 }
                 current = null;
