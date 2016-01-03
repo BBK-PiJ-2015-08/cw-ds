@@ -10,7 +10,6 @@ public class ArrayList implements List {
 	private Object[] intArray;
 
 	private final static int DEFAULT_SIZE = 32;
-	protected int currentSizeOfArray;
 	protected int numberOfItems = 0;
 	private int i = 0;
 	private int j = 0;
@@ -18,7 +17,6 @@ public class ArrayList implements List {
 
 	public ArrayList() {
 		intArray = new Object[DEFAULT_SIZE];
-		currentSizeOfArray = DEFAULT_SIZE;
 	}
 
 	@Override
@@ -144,6 +142,5 @@ public class ArrayList implements List {
 		}
 		intArray = storageArray;
 		doubledCount++;
-		currentSizeOfArray = currentSizeOfArray * 2;
 	}
 }
