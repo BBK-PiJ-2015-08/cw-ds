@@ -47,22 +47,4 @@ public class FunctionalArrayList extends ArrayList implements FunctionalList {
 			return storageFAL;
 		}
 	}
-
-
 }
-
-/**
-class A {
-
-
-}
-class B extends A {
-
-}
-/**class C extends B{
-	CANNOT do
-}
-class C {
-	B b;
-}
-*/
