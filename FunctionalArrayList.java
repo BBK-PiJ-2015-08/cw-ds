@@ -40,7 +40,7 @@ public class FunctionalArrayList extends ArrayList implements FunctionalList {
 		if (isEmpty()) {
 			return storageFAL;
 		} else {
-			for (int i = 1; i<=numberOfItems; i++) {
+			for (int i = 1; i<=size(); i++) {
 				storageArray[i-1] = intArray[i];
 			}
 			return new ReturnObjectImpl(storageArray);
