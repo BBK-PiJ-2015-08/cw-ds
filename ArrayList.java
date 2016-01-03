@@ -144,5 +144,6 @@ public class ArrayList implements List {
 		}
 		intArray = storageArray;
 		doubledCount++;
+		currentSizeOfArray = currentSizeOfArray * 2;
 	}
 }
