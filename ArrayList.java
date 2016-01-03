@@ -125,7 +125,7 @@ public class ArrayList implements List {
 		if (item == null) {
 			return new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
 		}
-		else if (numberOfItems == currentSizeOfArray) {
+		else if (numberOfItems == size()) {
 			increaseSizeTwofold(intArray);
 			intArray[numberOfItems] = item;
 			numberOfItems++;
@@ -138,7 +138,7 @@ public class ArrayList implements List {
 		}
 	}
 	public void increaseSizeTwofold(Object[] intArray) {
-		Object[] storageArray = new Object[currentSizeOfArray * 2];
+		Object[] storageArray = new Object[(size()) * 2];
 		for (int k=0; k<numberOfItems; k++) {
 			storageArray[k] = intArray[k];
 		}
