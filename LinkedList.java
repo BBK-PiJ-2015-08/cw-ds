@@ -35,7 +35,6 @@ public class LinkedList implements List {
     public int size() {
        return numberOfNodes;
     }
-    //Do I need a HasNext type method?
     /**
      * Returns the element at the given position.
      *
@@ -85,12 +84,6 @@ public class LinkedList implements List {
         else if (index < 0 || index>=numberOfNodes) {
             return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
         } else if (numberOfNodes == 1) {
-            /** (there is only one item in list) {
-             store it
-             set this item, the head to null
-             increment the number of nodes down one.
-             return the stored removed element
-             */
             ReturnObject elementRemoved = new ReturnObjectImpl(head.getValue());
             head = null;
             numberOfNodes--;
@@ -101,15 +94,6 @@ public class LinkedList implements List {
             numberOfNodes--;
             return elementRemoved;
         }
-        /**
-            else if (the item to be removed is the head)
-            store it
-                    set the head to the next item
-                    while next.next is not equal to null, make the next element
-                    the head
-                    increment down the numberofnodes
-                    return the stored removed element
-         */
             else {
                 Node current = head;
                 nodeAt = 0;
@@ -127,13 +111,6 @@ public class LinkedList implements List {
                 return elementRemoved;
         }
     }
-//            go to the element at the given position
-//                  store the element
-//                    shift everything subsequent back 1
-//                    delete the final element
-//                    minus one from the number of elements
-//                    return the removed element
-
     /**
      * Adds an element to the list, inserting it at the given
      * position. The indeces of elements at and after that position
@@ -158,8 +135,7 @@ public class LinkedList implements List {
         //Arguement over Index_Out_Of_bounds?
         if (item == null) {
             return new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
-        }
-        else if (index < 0 || index > numberOfNodes) {
+        } else if (index < 0 || index > numberOfNodes) {
             return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
         }
         Node storageNode = new Node(item);
@@ -168,69 +144,49 @@ public class LinkedList implements List {
             numberOfNodes++;
             //check that this should be returning the item
             return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
-            /**
-             start at first node
-             go along to final position
-             shift everything forward one until you are back at the element for which
-             the index was specified
-             add the item at that index
-             increment numberofnodes up by 1
-             return an empty ReturnObject
-
-             */
         } else {
-            LinkedList storageList = new LinkedList();
-            storageList.head = this.head;
-            for (int i = 0; i < index; i++) {
-                storageList.setNext(current.getNext());
+            nodeAt = 0;
+            Node current = head;
+            while (nodeAt < index - 1) {
+                current = current.getNext();
+                nodeAt++;
             }
-            storageList.setNext(item);
-            for (int j=i; j < numberOfNodes; j++) {
-                storageList.setNext(current.getNext());
-            }
+            storageNode.setNext(current.getNext());
+            current.setNext(storageNode);
             numberOfNodes++;
-            this = storageList;
+            return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
         }
-    /**
-     * Adds an element at the end of the list.
-     *
-     * If a null object is provided to insert in the list, the
-     * request must be ignored and an appropriate error must be
-     * returned.
-     *
-     * @param item the value to insert into the list
-     * @return an ReturnObject, empty if the operation is successful
-     *         or containing an appropriate error message otherwise
-     */
-    @Override
-    public ReturnObject add(Object item) {
-        //don't forget invalid argument error
-        if (item == null) {
-            return new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
-        } else {
-            Node storedNode = new Node(item);
-            if (head == null) {
-                head = storedNode;
-                numberOfNodes++;
-                return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
+    }
+        /**
+         * Adds an element at the end of the list.
+         *
+         * If a null object is provided to insert in the list, the
+         * request must be ignored and an appropriate error must be
+         * returned.
+         *
+         * @param item the value to insert into the list
+         * @return an ReturnObject, empty if the operation is successful
+         *         or containing an appropriate error message otherwise
+         */
+        @Override
+        public ReturnObject add(Object item) {
+            if (item == null) {
+                return new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
             } else {
-                Node current = head;
-                while (current.getNext() != null) {
-                    current = current.getNext();
+                Node storedNode = new Node(item);
+                if (head == null) {
+                    head = storedNode;
+                    numberOfNodes++;
+                    return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
+                } else {
+                    Node current = head;
+                    while (current.getNext() != null) {
+                        current = current.getNext();
+                    }
+                    current.setNext(storedNode);
+                    numberOfNodes++;
+                    return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
                 }
-                current.setNext(storedNode);
-                numberOfNodes++;
-                return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
             }
         }
-
-        /**
-        if (this.next == null) {
-            this.next = item;
-        } else {
-            this.next.add(item);
-        }
-        return null;
-         */
-    }
 }
