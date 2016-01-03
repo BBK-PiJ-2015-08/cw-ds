@@ -8,6 +8,8 @@
  * the order is extends x implements y
  */
 public class FunctionalArrayList extends ArrayList implements FunctionalList {
+
+	private int restUsedXTimes = 0;
 	@Override
 	/**
 	 * Returns the element at the beginning of the list.
@@ -34,14 +36,16 @@ public class FunctionalArrayList extends ArrayList implements FunctionalList {
 	 * If the list is empty, another empty list is returned.
 	 */
 	public FunctionalList rest() {
+		FunctionalArrayList storageFAL = new FunctionalArrayList();
 		if (numberOfItems == 0) {
 
 		} else {
-			storageArray<restUsedXTimes> = new Object[numberOfItems];
+
 			for (int i = 1; i<=numberOfItems; i++) {
 				storageArray[i-1] = intArray[i];
 			}
 			return new ReturnObjectImpl(storageArray);
+			restUsedXTimes++;
 		}
 	}
 

@@ -11,7 +11,7 @@ public class ArrayList implements List {
 
 	private final static int DEFAULT_SIZE = 32;
 	protected int currentSizeOfArray;
-	private int numberOfItems = 0;
+	protected int numberOfItems = 0;
 	private int i = 0;
 	private int j = 0;
 	private int doubledCount = 0;
