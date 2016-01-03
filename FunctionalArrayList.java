@@ -41,7 +41,7 @@ public class FunctionalArrayList extends ArrayList implements FunctionalList {
 			return storageFAL;
 		} else {
 			for (int i = 1; i<=size(); i++) {
-				storageArray[i-1] = intArray[i];
+				storageArray.add(intArray[i]);
 			}
 			return new ReturnObjectImpl(storageArray);
 			restUsedXTimes++;
