@@ -165,56 +165,34 @@ public class LinkedList implements List {
             return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
         }
         Node storageNode = new Node(item);
-        else if (isEmpty()) {
-            if (index == 0) {
-                head = storageNode;
-                numberOfNodes++;
-                //check if this should be returning the item
-                return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
-            }
-        } else {
-                /**
-                nodeAt = 0;
-                while (nodeAt < numberOfNodes) {
-                    Node current = current.getNext();
-                    nodeAt++;
-                }
-                 */
-                    for (int i = 0; i < (index-1); i++) {
-                        Node current = current.getNext();
-                    }
-                    storageNode.setNext(current.getNext());
-                    current.setNext(storageNode);
-                    numberOfNodes++;
-                    return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
-        }
-}
-                /**
-                while (nodeAt > index) {
-                    // is the line below assigning a value or just shifting
-                    //the position in the linkedlist
-                    //Just struggling to make the current node take the
-                    //value of the previous node
-                    Node current = current.setNext(current);
-                    nodeAt--;
-                }
-                 */
-                /**
-                 start at first node
-                 go along to final position
-                 shift everything forward one until you are back at the element for which
-                 the index was specified
-                 add the item at that index
-                 increment numberofnodes up by 1
-                 return an empty ReturnObject
-                 */
-                /**
-                shift node at end, followed by each previous node until nodeAt = index, forward one. Recursive?
-                 while nodeAt = index, add Object item to this node
-                increment numberofnodes up by 1
-                return an empty ReturnObject
-                */
+        if (isEmpty()) {
+            head = storageNode;
+            numberOfNodes++;
+            //check that this should be returning the item
+            return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
+            /**
+             start at first node
+             go along to final position
+             shift everything forward one until you are back at the element for which
+             the index was specified
+             add the item at that index
+             increment numberofnodes up by 1
+             return an empty ReturnObject
 
+             */
+        } else {
+            LinkedList storageList = new LinkedList();
+            storageList.head = this.head;
+            for (int i = 0; i < index; i++) {
+                storageList.setNext(current.getNext());
+            }
+            storageList.setNext(item);
+            for (int j=i; j < numberOfNodes; j++) {
+                storageList.setNext(current.getNext());
+            }
+            numberOfNodes++;
+            current = storageList;
+        }
     /**
      * Adds an element at the end of the list.
      *
@@ -232,19 +210,23 @@ public class LinkedList implements List {
         //don't forget invalid argument error
         if (item == null) {
             return new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
-        } else if (head == null) {
-            head = item;
-            numberOfNodes++;
-            return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
         } else {
-            Node current = head;
-            while (current.getNext() != null) {
-                current = current.getNext();
+            Node storedNode = new Node(item);
+            if (head == null) {
+                head = storedNode;
+                numberOfNodes++;
+                return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
+            } else {
+                Node current = head;
+                while (current.getNext() != null) {
+                    current = current.getNext();
+                }
+                current.setNext(storedNode);
+                numberOfNodes++;
+                return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
             }
-            current.setNext(item);
-            numberOfNodes++;
-            return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
         }
+
         /**
         if (this.next == null) {
             this.next = item;
