@@ -8,7 +8,9 @@
  * the order is extends x implements y
  */
 public class FunctionalArrayList extends ArrayList implements FunctionalList {
-	
+	public FunctionalArrayList() {
+		super();
+	}
 	@Override
 	/**
 	 * Returns the element at the beginning of the list.
@@ -23,7 +25,7 @@ public class FunctionalArrayList extends ArrayList implements FunctionalList {
 			return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
 		}
 		else {
-			return new ReturnObjectImpl(intArray[0]);
+			return new ReturnObjectImpl(this.get(0).getReturnValue());
 		}
 	}
 	@Override
@@ -39,8 +41,8 @@ public class FunctionalArrayList extends ArrayList implements FunctionalList {
 		if (isEmpty()) {
 			return storageFAL;
 		} else {
-			for (int i = 1; i<=size(); i++) {
-				storageFAL.add(intArray[i]);
+			for (int i = 1; i<size(); i++) {
+				storageFAL.add(this.get(i).getReturnValue());
 			}
 			return storageFAL;
 		}
