@@ -16,7 +16,6 @@ public class LinkedList implements List {
     }
 
     @Override
-    //not done
     /**
      * Returns true if the list is empty, false otherwise.
      * @return true if the list is empty, false otherwise.
@@ -154,7 +153,6 @@ public class LinkedList implements List {
      *         or containing an appropriate error message otherwise
      */
     @Override
-    //not done
     public ReturnObject add(int index, Object item) {
         //don't forget invalid argument error: Added. Precedence for Invalid
         //Arguement over Index_Out_Of_bounds?
@@ -191,7 +189,7 @@ public class LinkedList implements List {
                 storageList.setNext(current.getNext());
             }
             numberOfNodes++;
-            current = storageList;
+            this = storageList;
         }
     /**
      * Adds an element at the end of the list.
@@ -205,7 +203,6 @@ public class LinkedList implements List {
      *         or containing an appropriate error message otherwise
      */
     @Override
-    //not done
     public ReturnObject add(Object item) {
         //don't forget invalid argument error
         if (item == null) {
