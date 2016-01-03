@@ -8,8 +8,7 @@
  * the order is extends x implements y
  */
 public class FunctionalArrayList extends ArrayList implements FunctionalList {
-
-	private int restUsedXTimes = 0;
+	
 	@Override
 	/**
 	 * Returns the element at the beginning of the list.
