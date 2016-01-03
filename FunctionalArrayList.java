@@ -37,10 +37,9 @@ public class FunctionalArrayList extends ArrayList implements FunctionalList {
 	 */
 	public FunctionalList rest() {
 		FunctionalArrayList storageFAL = new FunctionalArrayList();
-		if (numberOfItems == 0) {
-
+		if (isEmpty()) {
+			return storageFAL;
 		} else {
-
 			for (int i = 1; i<=numberOfItems; i++) {
 				storageArray[i-1] = intArray[i];
 			}
