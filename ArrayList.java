@@ -89,6 +89,11 @@ public class ArrayList implements List {
 			numberOfItems++;
 			return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
 		} else {
+			//what if the index is equal to the size of the list -1,
+			//but the list is already full
+			if (index == numberOfItems-1 && numberOfItems == size()) {
+				increaseSizeTwofold(intArray);
+			}
 			j = index;
 			while (!((intArray[j+1]) == null)) {
 				j++;
