@@ -26,7 +26,7 @@ public class ReturnObjectImpl implements ReturnObject {
 	 * @return whether there has been an error
 	 */
 	public boolean hasError() {
-		if (error != ErrorMessage.NO_ERROR); {
+		if (err != ErrorMessage.NO_ERROR) {
 			return true;
 		} else {
 			return false;
