@@ -17,7 +17,7 @@
  * ErrorMessage}).
  */
 public class ImprovedStackImpl implements ImprovedStack {
-    protected List internalList;
+    private List internalList;
 
     public ImprovedStackImpl(List list) {
         this.internalList = list;
@@ -32,11 +32,12 @@ public class ImprovedStackImpl implements ImprovedStack {
      * @return a copy of this stack with the items reversed.
      */
     public ImprovedStack reverse() {
-        if (internalList.isEmpty()) {
-            //Should this not just return an empty stack?
+        if (isEmpty()) {
+            //this won't work so try returning an empty improved stack
             return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
         } else {
-            List storageList = new ArrayList();
+            //How does this work? Is it accessing arraylists or
+            //linkedlists in any way?
         }
     }
 
@@ -51,7 +52,15 @@ public class ImprovedStackImpl implements ImprovedStack {
      * @param object the object to remove
      */
     public void remove(Object object) {
+        if (isEmpty()) {
+            return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
+        } else {
 
+        }
+        //traverse list
+        //check if list item is equal to the object being checked
+        //if list item is equal, remove it.
+        //shift subsequent items in the stack
     }
 
     @Override
