@@ -15,7 +15,6 @@ public class FunctionalLinkedList extends LinkedList implements FunctionalList {
      * @return a copy of the element at the beginning of the list or
      *         an error if the list is empty.
      */
-    //not done
     public ReturnObject head() {
         if (isEmpty()) {
             return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
@@ -31,8 +30,18 @@ public class FunctionalLinkedList extends LinkedList implements FunctionalList {
      *
      * If the list is empty, another empty list is returned.
      */
-    //not done
     public FunctionalList rest() {
-        return null;
+        FunctionalLinkedList storageFLL = new FunctionalLinkedList();
+        if (isEmpty()) {
+            return storageFLL;
+        } else {
+            Node current = head.getNext();
+            storageFLL.add(current.getValue());
+            while (current.getNext() != null) {
+                current = current.getNext();
+                storageFLL.add(current.getValue());
+            }
+            return storageFLL;
+        }
     }
 }
