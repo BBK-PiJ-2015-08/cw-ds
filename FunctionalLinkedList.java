@@ -17,7 +17,11 @@ public class FunctionalLinkedList extends LinkedList implements FunctionalList {
      */
     //not done
     public ReturnObject head() {
-
+        if (isEmpty()) {
+            return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
+        } else {
+            return new ReturnObjectImpl(head.getValue());
+        }
     }
     @Override
     /**
