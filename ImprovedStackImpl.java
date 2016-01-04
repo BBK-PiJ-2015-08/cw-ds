@@ -15,9 +15,12 @@
  * list will return a {@see ReturnObject} that will contain either an
  * object or an error value of the right kind (as defined in {@see
  * ErrorMessage}).
- *
  */
 public class ImprovedStackImpl implements ImprovedStack {
+    public ImprovedStackImpl(List internalList) {
+        super(internalList);
+    }
+
     @Override
     /**
      * Returns a copy of this stack with the items reversed, the top
