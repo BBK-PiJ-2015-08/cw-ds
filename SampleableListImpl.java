@@ -22,11 +22,12 @@ public class SampleableListImpl extends ArrayList implements SampleableList {
     public SampleableList sample() {
         SampleableListImpl firstThirdFifth = new SampleableListImpl();
         if (this.isEmpty()) {
-            return new ReturnObjectImpl(firstThirdFifth);
+            return firstThirdFifth;
         } else {
             firstThirdFifth.add(this.get(0).getReturnValue());
             firstThirdFifth.add(this.get(2).getReturnValue());
             firstThirdFifth.add(this.get(4).getReturnValue());
+            return firstThirdFifth;
 
         }
     }
