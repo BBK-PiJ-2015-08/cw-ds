@@ -7,6 +7,10 @@
  * grading.
  */
 public class SampleableListImpl extends ArrayList implements SampleableList {
+    public SampleableListImpl() {
+        super();
+    }
+
     @Override
     //not done
     /**
@@ -16,7 +20,15 @@ public class SampleableListImpl extends ArrayList implements SampleableList {
      * @return a list containing the first, third, fifth... items of this list
      */
     public SampleableList sample() {
-        return null;
+        SampleableListImpl firstThirdFifth = new SampleableListImpl();
+        if (this.isEmpty()) {
+            return new ReturnObjectImpl(firstThirdFifth);
+        } else {
+            firstThirdFifth.add(this.get(0).getReturnValue());
+            firstThirdFifth.add(this.get(2).getReturnValue());
+            firstThirdFifth.add(this.get(4).getReturnValue());
+
+        }
     }
 
 }
