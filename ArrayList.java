@@ -7,13 +7,11 @@
  */
 public class ArrayList implements List {
 	//No constructors
-	private Object[] intArray;
-
-	private final static int DEFAULT_SIZE = 32;
+	protected Object[] intArray;
+	protected final static int DEFAULT_SIZE = 32;
 	protected int numberOfItems = 0;
 	private int i = 0;
 	private int j = 0;
-	private int doubledCount = 0;
 
 	public ArrayList() {
 		intArray = new Object[DEFAULT_SIZE];
@@ -141,6 +139,5 @@ public class ArrayList implements List {
 			storageArray[k] = intArray[k];
 		}
 		intArray = storageArray;
-		doubledCount++;
 	}
 }
