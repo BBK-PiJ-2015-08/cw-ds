@@ -86,14 +86,7 @@ public class ArrayList implements List {
 			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
 		} else if (index < 0 || index>=(this.size())) {
 			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
-		} /**else if ((intArray[index]) == null) {
-			if (numberOfItems == max) {
-				increaseSizeTwofold(intArray);
-			}
-			intArray[index] = item;
-			numberOfItems++;
-			return new ReturnObjectImpl(null);
-		}*/ else {
+		} else {
 			if (numberOfItems >= max) {
 				increaseSizeTwofold();
 			}
