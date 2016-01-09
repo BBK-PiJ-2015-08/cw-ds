@@ -97,16 +97,4 @@ public class StackImpl extends AbstractStack {
             return internalList.remove(size()-1);
         }
     }
-    /**
-    public void increaseSizeTwofold(Object[] intArray) {
-        max = max * 2;
-        Object[] storageArray = new Object[max];
-        for (int k=0; k<numberOfItems; k++) {
-            storageArray[k] = intArray[k];
-        }
-        for (int z = 0; z < numberOfItems; z++) {
-            this.intArray[z] = storageArray[z];
-        }
-    }
-     */
 }
