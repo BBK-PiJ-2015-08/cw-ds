@@ -21,11 +21,13 @@ public class ImprovedStackImpl implements ImprovedStack {
 
     protected List internalList;
 
-    publi
+    public ImprovedStackImpl() {
+
+    }
 
     public ImprovedStackImpl(List list) {
         super();
-        this.internalList = new ArrayList();
+        this.internalList = list;
     }
 
     //Is there a way I can just use the previously coded size, top, pop
