@@ -19,7 +19,7 @@
  */
 public class ImprovedStackImpl implements ImprovedStack {
 
-    protected List internalList;
+    private List internalList;
 
     public ImprovedStackImpl(List list) {
         this.internalList = list;
@@ -121,7 +121,6 @@ public class ImprovedStackImpl implements ImprovedStack {
         if (item != null) {
             internalList.add(item);
         }
-        return;
     }
 
     @Override

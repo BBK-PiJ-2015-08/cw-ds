@@ -29,8 +29,8 @@ public class StackImpl extends AbstractStack {
          *
          * @param list the list to be used
          */
-        public StackImpl(List internalList) {
-            super(internalList);
+        public StackImpl(List list) {
+            super(list);
         }
 
         @Override
@@ -40,12 +40,7 @@ public class StackImpl extends AbstractStack {
          * @return true if the stack is empty, false otherwise.
          */
         public boolean isEmpty() {
-            if (this.internalList.isEmpty()) {
-                return true;
-            }
-            else {
-                return false;
-            }
+            return this.internalList.isEmpty();
         }
 
     @Override
@@ -66,9 +61,9 @@ public class StackImpl extends AbstractStack {
      */
     public void push(Object item) {
         if (item != null) {
+            if
             internalList.add(item);
         }
-        return;
     }
 
     @Override
@@ -101,6 +96,16 @@ public class StackImpl extends AbstractStack {
             return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
         } else {
             return new ReturnObjectImpl(internalList.remove((size())-1));
+        }
+    }
+    public void increaseSizeTwofold(Object[] intArray) {
+        max = max * 2;
+        Object[] storageArray = new Object[max];
+        for (int k=0; k<numberOfItems; k++) {
+            storageArray[k] = intArray[k];
+        }
+        for (int z = 0; z < numberOfItems; z++) {
+            this.intArray[z] = storageArray[z];
         }
     }
 }
