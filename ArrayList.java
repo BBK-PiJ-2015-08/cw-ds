@@ -84,13 +84,11 @@ public class ArrayList implements List {
 		} else if (index < 0 || index>=numberOfItems) {
 			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
 		} else if ((intArray[index]) == null) {
-			this.intArray[index] = item;
+			intArray[index] = item;
 			numberOfItems++;
 			return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
 		} else {
 			/**
-			 *
-
 			//what if the index is equal to the size of the list -1,
 			//but the list is already full
 			if (index == numberOfItems-1 && numberOfItems == size()) {
