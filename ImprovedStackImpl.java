@@ -116,7 +116,7 @@ public class ImprovedStackImpl implements ImprovedStack {
      */
     public void push(Object item) {
         if (item != null) {
-            internalList.add(item);
+            this.internalList.add(item);
         }
     }
 

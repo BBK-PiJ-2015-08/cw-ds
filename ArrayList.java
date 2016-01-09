@@ -119,12 +119,14 @@ public class ArrayList implements List {
 		if (item == null) {
 			return new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
 		}
-		else if (numberOfItems >= max) {
-			increaseSizeTwofold();
+		else {
+			if (numberOfItems >= max) {
+				increaseSizeTwofold();
+			}
+			intArray[numberOfItems] = item;
+			numberOfItems++;
+			return new ReturnObjectImpl(null);
 		}
-		intArray[numberOfItems] = item;
-		numberOfItems++;
-		return new ReturnObjectImpl(null);
 	}
 
 	public void increaseSizeTwofold() {

@@ -61,7 +61,7 @@ public class StackImpl extends AbstractStack {
      */
     public void push(Object item) {
         if (item != null) {
-            internalList.add(item);
+            this.internalList.add(item);
         }
     }
 
