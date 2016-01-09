@@ -10,9 +10,7 @@ public class ArrayList implements List {
 	protected final static int DEFAULT_SIZE = 32;
 	protected int max = 32;
 	protected int numberOfItems = 0;
-	//protected int i = 0;
 	protected int j = 0;
-	//protected int pos;
 
 	public ArrayList() {
 		intArray = new Object[DEFAULT_SIZE];
@@ -79,9 +77,6 @@ public class ArrayList implements List {
 		 * @return an ReturnObject, empty if the operation is successful
 		 *         or containing an appropriate error message otherwise
 		 */
-		/**if (numberOfItems==0) {
-			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
-		} else */
 		if ((item == null)) {
 			return new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
 		}
@@ -107,19 +102,12 @@ public class ArrayList implements List {
 			for (int pos = j; pos>=index; pos--) {
 				intArray[pos+1] = intArray[pos];
 			}
-			/**
-			while (j>index) {
-				j--;
-			}
-			 */
 			intArray[index] = item;
 			numberOfItems++;
 			return new ReturnObjectImpl(null);
 		}
 	}
-	/**
-	 * If there are no elements, create the first element (and assign size)
-	*/
+
 	@Override
 	public ReturnObject add(Object item) {
 		/**
@@ -143,6 +131,7 @@ public class ArrayList implements List {
 		numberOfItems++;
 		return new ReturnObjectImpl(null);
 	}
+
 	public void increaseSizeTwofold() {
 		max = max * 2;
 		Object[] storageArray = new Object[max];
@@ -150,6 +139,5 @@ public class ArrayList implements List {
 			storageArray[k] = this.intArray[k];
 		}
 		intArray = storageArray;
-
 	}
 }
