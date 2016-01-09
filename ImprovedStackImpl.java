@@ -19,6 +19,9 @@
 public class ImprovedStackImpl implements ImprovedStack {
     //Need to create the internalImpList which is a renamed version of internalList from StackImpl
     //Renamed that to avoid confusion
+    //Think this renaming actually means my top & pop methods won't work
+    // as they are looking
+    // to check if internalList is Empty and find internalImpList instead.
 
     private List internalImpList;
 
