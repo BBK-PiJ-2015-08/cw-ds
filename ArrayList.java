@@ -123,9 +123,9 @@ public class ArrayList implements List {
 			if (numberOfItems >= max) {
 				increaseSizeTwofold();
 			}
-			intArray[numberOfItems] = item;
+			this.intArray[numberOfItems] = item;
 			numberOfItems++;
-			return new ReturnObjectImpl(null);
+			return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
 		}
 	}
 
