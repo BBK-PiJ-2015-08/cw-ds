@@ -86,6 +86,7 @@ public class ImprovedStackImpl implements ImprovedStack {
             for (int v = 0; v<=upperBound; v++) {
                 this.pop();
             }
+            //This is throwing up errors
             internalList = (List) nonMatchingList;
         }
     }
