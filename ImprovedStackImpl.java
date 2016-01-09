@@ -42,6 +42,7 @@ public class ImprovedStackImpl implements ImprovedStack {
      * @return a copy of this stack with the items reversed.
      */
     public ImprovedStack reverse() {
+        //This compiles but are there any possible errors I need to acccount for.
         List reversedArrayList = new ArrayList();
         ImprovedStack reversedList = new ImprovedStackImpl(reversedArrayList);
         if (!(internalList.isEmpty())) {
@@ -63,8 +64,6 @@ public class ImprovedStackImpl implements ImprovedStack {
          * and use the add() method to add the value from
          * the get value. use getreturnvalue to avoid hash codes
          */
-
-
     }
 
     @Override
