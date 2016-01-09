@@ -85,7 +85,10 @@ public class ImprovedStackImpl implements ImprovedStack {
      * @param item the new item to be added
      */
     public void push(Object item) {
-        internalList.push(item);
+        if (item != null) {
+            internalList.add(item);
+        }
+        return;
     }
 
     @Override
@@ -97,7 +100,11 @@ public class ImprovedStackImpl implements ImprovedStack {
      *         stack is empty, an appropriate error.
      */
     public ReturnObject top() {
-        return internalList.top();
+        if (internalList.isEmpty()) {
+            return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
+        } else {
+            return new ReturnObjectImpl(internalList.get((size()) - 1));
+        }
     }
 
     @Override
@@ -109,6 +116,10 @@ public class ImprovedStackImpl implements ImprovedStack {
      *         stack is empty, an appropriate error.
      */
     public ReturnObject pop() {
-        return internalList.pop();
+        if (internalList.isEmpty()) {
+            return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
+        } else {
+            return new ReturnObjectImpl(internalList.remove((size())-1));
+        }
     }
 }
