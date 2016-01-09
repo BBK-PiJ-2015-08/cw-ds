@@ -84,7 +84,7 @@ public class ArrayList implements List {
 		} else if (index < 0 || index>=numberOfItems) {
 			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
 		} else if ((intArray[index]) == null) {
-			intArray[index] = item;
+			this.intArray[index] = item;
 			numberOfItems++;
 			return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
 		} else {
