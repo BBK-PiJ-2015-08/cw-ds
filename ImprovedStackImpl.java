@@ -12,7 +12,16 @@
  * object or an error value of the right kind (as defined in {@see
  * ErrorMessage}).
  */
+
+/**
+ * This class must have only one constructor with only one parameter
+ of type List.
+ */
 public class ImprovedStackImpl implements ImprovedStack {
+
+    public ImprovedStackImpl(List list) {
+        
+    }
 
     /**
      * That code did not actually have a way to access the top, pop methods of StackImpl
