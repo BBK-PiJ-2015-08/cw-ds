@@ -19,6 +19,8 @@
  */
 public class ImprovedStackImpl implements ImprovedStack {
 
+    protected List internalList;
+
     public ImprovedStackImpl(List list) {
         this.internalList = list;
     }
@@ -29,7 +31,6 @@ public class ImprovedStackImpl implements ImprovedStack {
      * object of type StackImpl
      * @return
      */
-    Stack internalList = new ImprovedStackImpl();
 
 
     @Override
