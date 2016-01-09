@@ -1,8 +1,4 @@
 /**
- * This class must have only one constructor with only one parameter
- * of type List.
- */
-/**
  * An implementation of a stack with additional methods.
  *
  * Classes implementing this interface must use a {@see List} as the
@@ -25,9 +21,11 @@ public class ImprovedStackImpl implements ImprovedStack {
 
     protected List internalList;
 
+    publi
+
     public ImprovedStackImpl(List list) {
         super();
-        this.internalList = list;
+        this.internalList = new ArrayList();
     }
 
     //Is there a way I can just use the previously coded size, top, pop
