@@ -42,11 +42,11 @@ public class ImprovedStackImpl implements ImprovedStack {
      * @return a copy of this stack with the items reversed.
      */
     public ImprovedStack reverse() {
-        List reversedList = new ArrayList();
-        ImprovedStack reversedList = new ImprovedStackImpl(reversedList);
-        if (!(this.isEmpty())) {
-            for (int s = (this.size())-1; s>=0; s--) {
-                reversedList.add(this.get(i).getRet)
+        List reversedArrayList = new ArrayList();
+        ImprovedStack reversedList = new ImprovedStackImpl(reversedArrayList);
+        if (!(internalList.isEmpty())) {
+            for (int s = (internalList.size())-1; s>=0; s--) {
+                reversedList.add(internalList.get(s).getReturnValue());
             }
         }
         return reversedList;
