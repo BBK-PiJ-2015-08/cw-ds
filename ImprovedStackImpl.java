@@ -77,10 +77,14 @@ public class ImprovedStackImpl implements ImprovedStack {
             List nonMatchingArrayList = new ArrayList();
             ImprovedStack nonMatchingList = new ImprovedStackImpl(nonMatchingArrayList);
             for (int t = 0; t<=(internalList.size())-1; t++) {
-                if (!((internalList.get(s).getReturnValue()).equals(object))) {
-                    nonMatchingList.push(internalList.get(s).getReturnValue());
+                if (!((internalList.get(t).getReturnValue()).equals(object))) {
+                    nonMatchingList.push(internalList.get(t).getReturnValue());
                 }
             }
+            //need to remove all values from internalList so when reassigning don't get wrong
+            //length
+            for (int v = 0; v<=(internalList.size())-1; v++)
+            internalList =
         }
     }
 
