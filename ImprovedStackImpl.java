@@ -20,7 +20,7 @@
 public class ImprovedStackImpl implements ImprovedStack {
 
     public ImprovedStackImpl(List list) {
-        
+        this.internalList = list;
     }
 
     /**
