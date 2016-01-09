@@ -20,6 +20,8 @@ public class ImprovedStackImpl implements ImprovedStack {
      * object of type StackImpl
      * @return
      */
+    StackImpl internalList = new ImprovedStackImpl();
+
 
     @Override
     /**
@@ -43,7 +45,7 @@ public class ImprovedStackImpl implements ImprovedStack {
      * @param object the object to remove
      */
     public void remove(Object object) {
-        
+
     }
 
     @Override
