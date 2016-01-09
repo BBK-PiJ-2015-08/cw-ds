@@ -17,11 +17,6 @@
  * ErrorMessage}).
  */
 public class ImprovedStackImpl implements ImprovedStack {
-    private List internalList;
-
-    public ImprovedStackImpl(List list) {
-        this.internalList = list;
-    }
 
     @Override
     /**
@@ -34,7 +29,7 @@ public class ImprovedStackImpl implements ImprovedStack {
     public ImprovedStack reverse() {
         if (isEmpty()) {
             //this won't work so try returning an empty improved stack
-            return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
+            return ImprovedStack;
         } else {
             //How does this work? Is it accessing arraylists or
             //linkedlists in any way?
@@ -113,7 +108,7 @@ public class ImprovedStackImpl implements ImprovedStack {
         if (internalList.isEmpty()) {
             return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
         } else {
-            return internalList.get((size()) - 1);
+            return internalList.get((size())-1);
         }
     }
 
