@@ -83,8 +83,11 @@ public class ImprovedStackImpl implements ImprovedStack {
             }
             //need to remove all values from internalList so when reassigning don't get wrong
             //length
-            for (int v = 0; v<=(internalList.size())-1; v++)
-            internalList =
+            int upperBound = internalList.size() - 1;
+            for (int v = 0; v<=upperBound; v++) {
+                this.pop();
+            }
+            internalList = nonMatchingList;
         }
     }
 
