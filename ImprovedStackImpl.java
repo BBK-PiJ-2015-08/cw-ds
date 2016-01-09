@@ -79,7 +79,7 @@ public class ImprovedStackImpl implements ImprovedStack {
             for (int t = 0; t<=(internalList.size())-1; t++) {
                 currentObject = pop().getReturnValue();
                 if (!currentObject.equals(object)) {
-                    nonMatchingList.push(currentObject);
+                    nonMatchingArrayList.add(currentObject);
                 }
             }
             //need to remove all values from internalList so when reassigning don't get wrong
