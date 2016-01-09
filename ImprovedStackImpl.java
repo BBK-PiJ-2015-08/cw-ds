@@ -17,6 +17,8 @@
  * ErrorMessage}).
  */
 public class ImprovedStackImpl implements ImprovedStack {
+    //Need to create the internalImpList which is a renamed version of internalList from StackImpl
+    //Renamed that to avoid confusion
 
     @Override
     /**
@@ -27,13 +29,7 @@ public class ImprovedStackImpl implements ImprovedStack {
      * @return a copy of this stack with the items reversed.
      */
     public ImprovedStack reverse() {
-        if (isEmpty()) {
-            //this won't work so try returning an empty improved stack
-            return ImprovedStack;
-        } else {
-            //How does this work? Is it accessing arraylists or
-            //linkedlists in any way?
-        }
+        //Not working at all so start from scratch
     }
 
     @Override
@@ -47,11 +43,7 @@ public class ImprovedStackImpl implements ImprovedStack {
      * @param object the object to remove
      */
     public void remove(Object object) {
-        if (isEmpty()) {
-            return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
-        } else {
-
-        }
+        //Not working at all so start from scratch
         //traverse list
         //check if list item is equal to the object being checked
         //if list item is equal, remove it.
@@ -65,7 +57,7 @@ public class ImprovedStackImpl implements ImprovedStack {
      * @return true if the stack is empty, false otherwise.
      */
     public boolean isEmpty() {
-        if (this.internalList.isEmpty()) {
+        if (this.internalImpList.isEmpty()) {
             return true;
         }
         else {
@@ -80,7 +72,7 @@ public class ImprovedStackImpl implements ImprovedStack {
      * @return the number of items currently in the stack
      */
     public int size() {
-        return internalList.size();
+        return internalImpList.size();
     }
 
     @Override
@@ -91,7 +83,7 @@ public class ImprovedStackImpl implements ImprovedStack {
      */
     public void push(Object item) {
         if (item != null) {
-            internalList.add(item);
+            internalImpList.add(item);
         }
         return;
     }
@@ -105,10 +97,10 @@ public class ImprovedStackImpl implements ImprovedStack {
      *         stack is empty, an appropriate error.
      */
     public ReturnObject top() {
-        if (internalList.isEmpty()) {
+        if (internalImpList.isEmpty()) {
             return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
         } else {
-            return internalList.get((size())-1);
+            return internalImpList.get((size())-1);
         }
     }
 
@@ -121,10 +113,10 @@ public class ImprovedStackImpl implements ImprovedStack {
      *         stack is empty, an appropriate error.
      */
     public ReturnObject pop() {
-        if (internalList.isEmpty()) {
+        if (internalImpList.isEmpty()) {
             return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
         } else {
-            return internalList.remove((size())-1);
+            return internalImpList.remove((size())-1);
         }
     }
 }
