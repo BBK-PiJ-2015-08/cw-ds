@@ -89,7 +89,7 @@ public class ImprovedStackImpl implements ImprovedStack {
      */
     public void push(Object item) {
         //if (item != null) {
-            internalImpList.add(item);
+        internalImpList.push(item);
         //}
         //return;
     }
