@@ -98,7 +98,7 @@ public class ArrayList implements List {
 			return new ReturnObjectImpl(null);
 		}*/ else {
 			if (numberOfItems >= max) {
-				this.increaseSizeTwofold(intArray);
+				increaseSizeTwofold();
 			}
 			j = index;
 			while (!((intArray[j+1]) == null)) {
@@ -137,20 +137,19 @@ public class ArrayList implements List {
 			return new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
 		}
 		else if (numberOfItems >= max) {
-			this.increaseSizeTwofold(intArray);
+			increaseSizeTwofold();
 		}
 		intArray[numberOfItems] = item;
 		numberOfItems++;
 		return new ReturnObjectImpl(null);
 	}
-	public void increaseSizeTwofold(Object[] intArray) {
+	public void increaseSizeTwofold() {
 		max = max * 2;
 		Object[] storageArray = new Object[max];
 		for (int k=0; k<numberOfItems; k++) {
 			storageArray[k] = this.intArray[k];
 		}
-		for (int z = 0; z < numberOfItems; z++) {
-			this.intArray[z] = storageArray[z];
-		}
+		intArray = storageArray;
+
 	}
 }
