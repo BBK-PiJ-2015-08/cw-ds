@@ -132,7 +132,7 @@ public class ImprovedStackImpl implements ImprovedStack {
         if (internalList.isEmpty()) {
             return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
         } else {
-            return new ReturnObjectImpl(internalList.get((size()) - 1));
+            return internalList.get(this.internalList.size() - 1);
         }
     }
 
@@ -148,7 +148,7 @@ public class ImprovedStackImpl implements ImprovedStack {
         if (internalList.isEmpty()) {
             return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
         } else {
-            return new ReturnObjectImpl(internalList.remove((size())-1));
+            return this.internalList.remove(size()-1);
         }
     }
 }
