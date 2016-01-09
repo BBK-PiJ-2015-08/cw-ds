@@ -23,6 +23,7 @@ public class ImprovedStackImpl implements ImprovedStack {
     private List internalImpList;
 
     public ImprovedStackImpl(List list) {
+        super();
         this.internalImpList = list;
     }
 
