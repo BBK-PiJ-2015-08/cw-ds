@@ -70,9 +70,17 @@ public class ImprovedStackImpl implements ImprovedStack {
          * If the list is empty, just skip all the rest of the method
          * Want to make a holder list, to add the values not matching Object object
          * Once have finished going through list, want to reassign holder list to original internalList
+         *
+         * Think about other errors, e.g. can skip everything if the object is null
          */
-        List nonMatchingList = new ArrayList();
-        
+        if (!(internalList.isEmpty())) {
+            List nonMatchingArrayList = new ArrayList();
+            ImprovedStack nonMatchingList = new ImprovedStackImpl(nonMatchingArrayList);
+            if (!internalList.)
+            for (int t = 0; t<=(internalList.size())-1; t++) {
+                nonMatchingList.push(internalList.get(s).getReturnValue());
+            }
+        }
 
     }
 
