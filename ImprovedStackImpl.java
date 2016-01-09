@@ -88,10 +88,10 @@ public class ImprovedStackImpl implements ImprovedStack {
      * @param item the new item to be added
      */
     public void push(Object item) {
-        if (item != null) {
+        //if (item != null) {
             internalImpList.add(item);
-        }
-        return;
+        //}
+        //return;
     }
 
     @Override
