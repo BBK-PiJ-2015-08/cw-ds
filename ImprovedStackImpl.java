@@ -20,8 +20,11 @@ public class ImprovedStackImpl implements ImprovedStack {
     //Need to create the internalImpList which is a renamed version of internalList from StackImpl
     //Renamed that to avoid confusion
 
+    
+
     //Is there a way I can just use the previously coded size, top, pop
-    //methods instead of having replicated code?
+    //methods instead of having replicated code?. Think using super will
+    //do it: http://beginnersbook.com/2014/07/super-keyword-in-java-with-example/
 
     @Override
     /**
