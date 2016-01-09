@@ -32,7 +32,6 @@ public class ImprovedStackImpl implements ImprovedStack {
      * @return
      */
 
-
     @Override
     /**
      * Returns a copy of this stack with the items reversed, the top
@@ -42,7 +41,7 @@ public class ImprovedStackImpl implements ImprovedStack {
      * @return a copy of this stack with the items reversed.
      */
     public ImprovedStack reverse() {
-        //This compiles but are there any possible errors I need to acccount for.
+        //This compiles but are there any possible errors I need to account for.
         List reversedArrayList = new ArrayList();
         ImprovedStack reversedList = new ImprovedStackImpl(reversedArrayList);
         if (!(internalList.isEmpty())) {
@@ -52,31 +51,28 @@ public class ImprovedStackImpl implements ImprovedStack {
         }
         return reversedList;
         /**
-         * Create an ImprovedStack
-         * Assign a list (specific type or general) to it
-         * Want to return an empty object if list is empty
-         * Make adding values to list part of loop that is only
-         * entered if this list is not empty
-         * in this if loop
-         * have a for loop, where you take the final value
-         * of the list and add it to the ImprovedStack
-         * this should start at the index equal to the size -1
-         * and use the add() method to add the value from
-         * the get value. use getreturnvalue to avoid hash codes
+         * Create an ImprovedStack. Assign a list (specific type or general) to it. Want to return an empty object if list is empty
+         * Make adding values to list part of loop that is only entered if this list is not empty in this if loop have
+         * a for loop, where you take the final value of the list and add it to the ImprovedStack this should start at
+         * the index equal to the size -1 and use the add() method to add the value from the get value.
+         * use getreturnvalue to avoid hash codes
          */
     }
-
     @Override
-    /**
-     * Removes the given object from the stack if it is
-     * there. Multiple instances of the object are all removed.
-     *
-     * Classes implementing this method must use method .equals() to
-     * check whether the item is in the stack or not.
-     *
+    /** Removes the given object from the stack if it is there. Multiple instances of the object are all removed.
+     * Classes implementing this method must use method .equals() to check whether the item is in the stack or not.
      * @param object the object to remove
      */
     public void remove(Object object) {
+        /**
+         * Need to go through list, checking if the object matches any of the values
+         * Don't need to return anything as this is a void method
+         * If the list is empty, just skip all the rest of the method
+         * Want to make a holder list, to add the values not matching Object object
+         * Once have finished going through list, want to reassign holder list to original internalList
+         */
+        List nonMatchingList = new ArrayList();
+        
 
     }
 
