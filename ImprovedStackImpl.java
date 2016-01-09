@@ -13,22 +13,13 @@
  * ErrorMessage}).
  */
 public class ImprovedStackImpl implements ImprovedStack {
-    //Need to create the internalImpList which is a renamed version of internalList from StackImpl
-    //Renamed that to avoid confusion
-    //Think this renaming actually means my top & pop methods won't work
-    // as they are looking
-    // to check if internalList is Empty and find internalImpList instead.
 
-    protected List internalList;
-
-    public ImprovedStackImpl() {
-
-    }
-
-    public ImprovedStackImpl(List list) {
-        super();
-        this.internalList = list;
-    }
+    /**
+     * That code did not actually have a way to access the top, pop methods of StackImpl
+     * as it only referred to ImprovedStack, which was just an interface. Try to create an
+     * object of type StackImpl
+     * @return
+     */
 
     //Is there a way I can just use the previously coded size, top, pop
     //methods instead of having replicated code?. Think using super will
