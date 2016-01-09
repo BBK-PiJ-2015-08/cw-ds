@@ -61,7 +61,6 @@ public class StackImpl extends AbstractStack {
      */
     public void push(Object item) {
         if (item != null) {
-            if
             internalList.add(item);
         }
     }
@@ -78,7 +77,7 @@ public class StackImpl extends AbstractStack {
         if (internalList.isEmpty()) {
             return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
         } else {
-            return new ReturnObjectImpl(internalList.get((size()) - 1));
+            return internalList.get(size() - 1);
         }
     }
 
@@ -95,9 +94,10 @@ public class StackImpl extends AbstractStack {
         if (internalList.isEmpty()) {
             return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
         } else {
-            return new ReturnObjectImpl(internalList.remove((size())-1));
+            return internalList.remove((size())-1);
         }
     }
+    /**
     public void increaseSizeTwofold(Object[] intArray) {
         max = max * 2;
         Object[] storageArray = new Object[max];
@@ -108,4 +108,5 @@ public class StackImpl extends AbstractStack {
             this.intArray[z] = storageArray[z];
         }
     }
+     */
 }

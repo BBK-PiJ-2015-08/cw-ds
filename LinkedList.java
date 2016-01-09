@@ -106,7 +106,7 @@ public class LinkedList implements List {
                     current.setNext(current.getNext());
                     nodeAt++;
                 }
-                current = null;
+                current.setNext(); = null;
                 numberOfNodes--;
                 return elementRemoved;
         }
@@ -132,7 +132,7 @@ public class LinkedList implements List {
     @Override
     public ReturnObject add(int index, Object item) {
         //don't forget invalid argument error: Added. Precedence for Invalid
-        //Arguement over Index_Out_Of_bounds?
+        //Argument over Index_Out_Of_bounds?
         if (item == null) {
             return new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
         } else if (index < 0 || index > numberOfNodes) {

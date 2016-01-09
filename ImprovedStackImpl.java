@@ -29,7 +29,6 @@ public class ImprovedStackImpl implements ImprovedStack {
      * That code did not actually have a way to access the top, pop methods of StackImpl
      * as it only referred to ImprovedStack, which was just an interface. Try to create an
      * object of type StackImpl. Failing that, keep code copied from StackImpl
-     * @return
      */
 
     @Override

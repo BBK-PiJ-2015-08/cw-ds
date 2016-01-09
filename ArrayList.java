@@ -10,9 +10,9 @@ public class ArrayList implements List {
 	protected final static int DEFAULT_SIZE = 32;
 	protected int max = 32;
 	protected int numberOfItems = 0;
-	private int i = 0;
-	private int j = 0;
-	private int pos;
+	//protected int i = 0;
+	protected int j = 0;
+	//protected int pos;
 
 	public ArrayList() {
 		intArray = new Object[DEFAULT_SIZE];
@@ -82,8 +82,11 @@ public class ArrayList implements List {
 		/**if (numberOfItems==0) {
 			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
 		} else */
-		if ((item == null) || index%1 !=0) {
+		if ((item == null)) {
 			return new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
+		}
+		if ((index%1) != 0) {
+			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
 		} else if (index < 0 || index>=numberOfItems) {
 			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
 		} else if ((intArray[index]) == null) {
