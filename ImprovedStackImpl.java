@@ -28,7 +28,7 @@ public class ImprovedStackImpl implements ImprovedStack {
     /**
      * That code did not actually have a way to access the top, pop methods of StackImpl
      * as it only referred to ImprovedStack, which was just an interface. Try to create an
-     * object of type StackImpl
+     * object of type StackImpl. Failing that, keep code copied from StackImpl
      * @return
      */
 
@@ -45,7 +45,9 @@ public class ImprovedStackImpl implements ImprovedStack {
         List reversedList = new ArrayList();
         ImprovedStack reversedList = new ImprovedStackImpl(reversedList);
         if (!(this.isEmpty())) {
-            
+            for (int s = (this.size())-1; s>=0; s--) {
+                reversedList.add(this.get(i).getRet)
+            }
         }
         return reversedList;
         /**
