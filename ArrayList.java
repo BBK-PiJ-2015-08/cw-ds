@@ -8,6 +8,7 @@
 public class ArrayList implements List {
 	protected Object[] intArray;
 	protected final static int DEFAULT_SIZE = 32;
+	protected int max = 32;
 	protected int numberOfItems = 0;
 	private int i = 0;
 	private int j = 0;
@@ -88,6 +89,9 @@ public class ArrayList implements List {
 			numberOfItems++;
 			return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
 		} else {
+			if (numberOfItems == max) {
+				increaseSizeTwofold(intArray);
+			}
 			/**
 			//what if the index is equal to the size of the list -1,
 			//but the list is already full
@@ -127,7 +131,7 @@ public class ArrayList implements List {
 		if (item == null) {
 			return new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
 		}
-		else if (numberOfItems == size()) {
+		else if (numberOfItems == max) {
 			increaseSizeTwofold(intArray);
 			intArray[numberOfItems] = item;
 			numberOfItems++;
@@ -140,7 +144,8 @@ public class ArrayList implements List {
 		}
 	}
 	public void increaseSizeTwofold(Object[] intArray) {
-		Object[] storageArray = new Object[(size()) * 2];
+		max = max * 2;
+		Object[] storageArray = new Object[max];
 		for (int k=0; k<numberOfItems; k++) {
 			storageArray[k] = intArray[k];
 		}
