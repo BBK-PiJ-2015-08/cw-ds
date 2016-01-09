@@ -23,11 +23,11 @@ public class ImprovedStackImpl implements ImprovedStack {
     // as they are looking
     // to check if internalList is Empty and find internalImpList instead.
 
-    private List internalImpList;
+    protected List internalList;
 
     public ImprovedStackImpl(List list) {
         super();
-        this.internalImpList = list;
+        this.internalList = list;
     }
 
     //Is there a way I can just use the previously coded size, top, pop
@@ -71,7 +71,7 @@ public class ImprovedStackImpl implements ImprovedStack {
      * @return true if the stack is empty, false otherwise.
      */
     public boolean isEmpty() {
-        return internalImpList.isEmpty();
+        return internalList.isEmpty();
     }
 
     @Override
@@ -81,7 +81,7 @@ public class ImprovedStackImpl implements ImprovedStack {
      * @return the number of items currently in the stack
      */
     public int size() {
-        return internalImpList.size();
+        return internalList.size();
     }
 
     @Override
@@ -91,7 +91,7 @@ public class ImprovedStackImpl implements ImprovedStack {
      * @param item the new item to be added
      */
     public void push(Object item) {
-        internalImpList.push(item);
+        internalList.push(item);
     }
 
     @Override
@@ -103,7 +103,7 @@ public class ImprovedStackImpl implements ImprovedStack {
      *         stack is empty, an appropriate error.
      */
     public ReturnObject top() {
-        return internalImpList.top();
+        return internalList.top();
     }
 
     @Override
@@ -115,6 +115,6 @@ public class ImprovedStackImpl implements ImprovedStack {
      *         stack is empty, an appropriate error.
      */
     public ReturnObject pop() {
-        return internalImpList.pop();
+        return internalList.pop();
     }
 }
