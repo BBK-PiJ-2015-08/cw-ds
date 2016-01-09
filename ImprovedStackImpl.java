@@ -42,6 +42,12 @@ public class ImprovedStackImpl implements ImprovedStack {
      * @return a copy of this stack with the items reversed.
      */
     public ImprovedStack reverse() {
+        List reversedList = new ArrayList();
+        ImprovedStack reversedList = new ImprovedStackImpl(reversedList);
+        if (!(this.isEmpty())) {
+            
+        }
+        return reversedList;
         /**
          * Create an ImprovedStack
          * Assign a list (specific type or general) to it
@@ -55,7 +61,7 @@ public class ImprovedStackImpl implements ImprovedStack {
          * and use the add() method to add the value from
          * the get value. use getreturnvalue to avoid hash codes
          */
-        
+
 
     }
 
