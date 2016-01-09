@@ -6,7 +6,6 @@
  * your code not compiling with the automatic tests used for grading.
  */
 public class ArrayList implements List {
-	//No constructors
 	protected Object[] intArray;
 	protected final static int DEFAULT_SIZE = 32;
 	protected int numberOfItems = 0;

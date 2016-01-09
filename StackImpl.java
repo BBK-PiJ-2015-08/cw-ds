@@ -34,7 +34,6 @@ public class StackImpl extends AbstractStack {
         }
 
         @Override
-
         /**
          * Returns true if the stack is empty, false otherwise.
          *
@@ -85,6 +84,8 @@ public class StackImpl extends AbstractStack {
             return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
         } else {
              return internalList.get((size()) - 1);
+
+            //return new ReturnObjectImpl(this.get(0).getReturnValue());
         }
     }
 
