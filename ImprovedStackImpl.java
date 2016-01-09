@@ -20,6 +20,9 @@ public class ImprovedStackImpl implements ImprovedStack {
     //Need to create the internalImpList which is a renamed version of internalList from StackImpl
     //Renamed that to avoid confusion
 
+    //Is there a way I can just use the previously coded size, top, pop
+    //methods instead of having replicated code?
+
     @Override
     /**
      * Returns a copy of this stack with the items reversed, the top
