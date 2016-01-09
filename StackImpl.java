@@ -94,7 +94,7 @@ public class StackImpl extends AbstractStack {
         if (internalList.isEmpty()) {
             return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
         } else {
-            return internalList.remove(size()-1);
+            return this.internalList.remove(size()-1);
         }
     }
 }
