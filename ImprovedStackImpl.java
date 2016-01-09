@@ -20,7 +20,11 @@ public class ImprovedStackImpl implements ImprovedStack {
     //Need to create the internalImpList which is a renamed version of internalList from StackImpl
     //Renamed that to avoid confusion
 
-    
+    private List internalImpList;
+
+    public ImprovedStackImpl(List list) {
+        this.internalImpList = list;
+    }
 
     //Is there a way I can just use the previously coded size, top, pop
     //methods instead of having replicated code?. Think using super will
