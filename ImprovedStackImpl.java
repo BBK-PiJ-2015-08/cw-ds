@@ -20,7 +20,7 @@ public class ImprovedStackImpl implements ImprovedStack {
      * object of type StackImpl
      * @return
      */
-    StackImpl internalList = new ImprovedStackImpl();
+    Stack internalList = new ImprovedStackImpl();
 
 
     @Override
