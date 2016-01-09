@@ -21,10 +21,6 @@ public class ImprovedStackImpl implements ImprovedStack {
      * @return
      */
 
-    //Is there a way I can just use the previously coded size, top, pop
-    //methods instead of having replicated code?. Think using super will
-    //do it: http://beginnersbook.com/2014/07/super-keyword-in-java-with-example/
-
     @Override
     /**
      * Returns a copy of this stack with the items reversed, the top
@@ -34,7 +30,6 @@ public class ImprovedStackImpl implements ImprovedStack {
      * @return a copy of this stack with the items reversed.
      */
     public ImprovedStack reverse() {
-        //Not working at all so start from scratch
     }
 
     @Override
@@ -48,11 +43,7 @@ public class ImprovedStackImpl implements ImprovedStack {
      * @param object the object to remove
      */
     public void remove(Object object) {
-        //Not working at all so start from scratch
-        //traverse list
-        //check if list item is equal to the object being checked
-        //if list item is equal, remove it.
-        //shift subsequent items in the stack
+        
     }
 
     @Override
