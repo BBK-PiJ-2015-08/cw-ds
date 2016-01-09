@@ -74,7 +74,6 @@ public class ImprovedStackImpl implements ImprovedStack {
          */
         if (!(internalList.isEmpty())) {
             List nonMatchingArrayList = new ArrayList();
-            ImprovedStack nonMatchingList = new ImprovedStackImpl(nonMatchingArrayList);
             Object currentObject;
             for (int t = 0; t<=(internalList.size())-1; t++) {
                 currentObject = pop().getReturnValue();
@@ -82,14 +81,10 @@ public class ImprovedStackImpl implements ImprovedStack {
                     nonMatchingArrayList.add(currentObject);
                 }
             }
-            //need to remove all values from internalList so when reassigning don't get wrong
-            //length
-            int upperBound = internalList.size() - 1;
+            int upperBound = nonMatchingArrayList.size() - 1;
             for (int v = 0; v<=upperBound; v++) {
-                this.pop();
+                this.push(nonMatchingArrayList.get(v).getReturnValue());
             }
-            //This is throwing up errors
-            internalList = (List) nonMatchingList;
         }
     }
 
