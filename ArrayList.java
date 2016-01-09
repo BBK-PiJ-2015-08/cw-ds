@@ -53,6 +53,8 @@ public class ArrayList implements List {
 			}
 			intArray[numberOfItems] = null;
 			numberOfItems--;
+			//N.B. making the below a returnobject makes it start returning
+			//hash values.
 			return itemRemoved;
 		}
 	}
