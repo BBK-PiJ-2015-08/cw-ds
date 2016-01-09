@@ -87,17 +87,17 @@ public class ArrayList implements List {
 		}
 		if ((index%1) != 0) {
 			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
-		} else if (index < 0 || index>=numberOfItems) {
+		} else if (index < 0 || index>=(this.size())) {
 			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
-		} else if ((intArray[index]) == null) {
+		} /**else if ((intArray[index]) == null) {
 			if (numberOfItems == max) {
 				increaseSizeTwofold(intArray);
 			}
 			intArray[index] = item;
 			numberOfItems++;
 			return new ReturnObjectImpl(null);
-		} else {
-			if (numberOfItems == max) {
+		}*/ else {
+			if (numberOfItems >= max) {
 				increaseSizeTwofold(intArray);
 			}
 			j = index;
@@ -136,12 +136,8 @@ public class ArrayList implements List {
 		if (item == null) {
 			return new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
 		}
-		else if (numberOfItems == max) {
-			increaseSizeTwofold(intArray);
-			//intArray[numberOfItems] = item;
-			//numberOfItems++;
-			//return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
-
+		else if (numberOfItems >= max) {
+			this.increaseSizeTwofold(intArray);
 		}
 		intArray[numberOfItems] = item;
 		numberOfItems++;
