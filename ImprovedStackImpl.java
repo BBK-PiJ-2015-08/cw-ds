@@ -68,12 +68,7 @@ public class ImprovedStackImpl implements ImprovedStack {
      * @return true if the stack is empty, false otherwise.
      */
     public boolean isEmpty() {
-        if (this.internalImpList.isEmpty()) {
-            return true;
-        }
-        else {
-            return false;
-        }
+        return internalImpList.isEmpty();
     }
 
     @Override
