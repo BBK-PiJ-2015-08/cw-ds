@@ -76,12 +76,12 @@ public class ImprovedStackImpl implements ImprovedStack {
         if (!(internalList.isEmpty())) {
             List nonMatchingArrayList = new ArrayList();
             ImprovedStack nonMatchingList = new ImprovedStackImpl(nonMatchingArrayList);
-            if (!internalList.)
             for (int t = 0; t<=(internalList.size())-1; t++) {
-                nonMatchingList.push(internalList.get(s).getReturnValue());
+                if (!((internalList.get(s).getReturnValue()).equals(object)) {
+                    nonMatchingList.push(internalList.get(s).getReturnValue());
+                }
             }
         }
-
     }
 
     @Override
