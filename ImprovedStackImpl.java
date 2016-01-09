@@ -42,6 +42,21 @@ public class ImprovedStackImpl implements ImprovedStack {
      * @return a copy of this stack with the items reversed.
      */
     public ImprovedStack reverse() {
+        /**
+         * Create an ImprovedStack
+         * Assign a list (specific type or general) to it
+         * Want to return an empty object if list is empty
+         * Make adding values to list part of loop that is only
+         * entered if this list is not empty
+         * in this if loop
+         * have a for loop, where you take the final value
+         * of the list and add it to the ImprovedStack
+         * this should start at the index equal to the size -1
+         * and use the add() method to add the value from
+         * the get value. use getreturnvalue to avoid hash codes
+         */
+        
+
     }
 
     @Override
