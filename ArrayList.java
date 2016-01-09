@@ -98,7 +98,7 @@ public class ArrayList implements List {
 			return new ReturnObjectImpl(null);
 		}*/ else {
 			if (numberOfItems >= max) {
-				increaseSizeTwofold(intArray);
+				this.increaseSizeTwofold(intArray);
 			}
 			j = index;
 			while (!((intArray[j+1]) == null)) {
