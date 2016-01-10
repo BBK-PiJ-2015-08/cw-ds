@@ -55,7 +55,7 @@ public class LinkedList implements List {
         } else {
             Node current = head;
             nodeAt = 0;
-            while (nodeAt < index) {
+            while (nodeAt < index-1) {
                 current = current.getNext();
                 nodeAt++;
             }
