@@ -78,7 +78,7 @@ public class LinkedList implements List {
     @Override
     //not done
     public ReturnObject remove(int index) {
-        if (!isEmpty()) {
+        if (isEmpty()) {
             return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
         }
         else if (index < 0 || index>=numberOfNodes) {
