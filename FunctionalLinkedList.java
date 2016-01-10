@@ -6,7 +6,6 @@
  * your code not compiling with the automatic tests used for grading.
  */
 public class FunctionalLinkedList extends LinkedList implements FunctionalList {
-    @Override
     /**
      * Returns the element at the beginning of the list.
      *
@@ -15,6 +14,7 @@ public class FunctionalLinkedList extends LinkedList implements FunctionalList {
      * @return a copy of the element at the beginning of the list or
      *         an error if the list is empty.
      */
+    @Override
     public ReturnObject head() {
         if (isEmpty()) {
             return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
@@ -22,7 +22,6 @@ public class FunctionalLinkedList extends LinkedList implements FunctionalList {
             return new ReturnObjectImpl(head.getValue());
         }
     }
-    @Override
     /**
      * Returns a list with the elements in this list except the
      * head. The elements must be in the same order. The original list
@@ -30,6 +29,7 @@ public class FunctionalLinkedList extends LinkedList implements FunctionalList {
      *
      * If the list is empty, another empty list is returned.
      */
+    @Override
     public FunctionalList rest() {
         FunctionalLinkedList storageFLL = new FunctionalLinkedList();
         if (isEmpty()) {

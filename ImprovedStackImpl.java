@@ -11,9 +11,6 @@
  * list will return a {@see ReturnObject} that will contain either an
  * object or an error value of the right kind (as defined in {@see
  * ErrorMessage}).
- */
-
-/**
  * This class must have only one constructor with only one parameter
  of type List.
  */
@@ -24,21 +21,19 @@ public class ImprovedStackImpl implements ImprovedStack {
     public ImprovedStackImpl(List list) {
         this.internalList = list;
     }
-
-    /**
-     * That code did not actually have a way to access the top, pop methods of StackImpl
-     * as it only referred to ImprovedStack, which was just an interface. Try to create an
-     * object of type StackImpl. Failing that, keep code copied from StackImpl
-     */
-
-    @Override
     /**
      * Returns a copy of this stack with the items reversed, the top
      * elements on the original stack is at the bottom of the new
      * stack and viceversa.
      *
      * @return a copy of this stack with the items reversed.
+     * Create an ImprovedStack. Assign a list (specific type or general) to it. Want to return an empty object if list is empty
+     * Make adding values to list part of loop that is only entered if this list is not empty in this if loop have
+     * a for loop, where you take the final value of the list and add it to the ImprovedStack this should start at
+     * the index equal to the size -1 and use the add() method to add the value from the get value.
+     * use getreturnvalue to avoid hash codes
      */
+    @Override
     public ImprovedStack reverse() {
         //This compiles but are there any possible errors I need to account for.
         List reversedArrayList = new ArrayList();
@@ -49,29 +44,23 @@ public class ImprovedStackImpl implements ImprovedStack {
             }
         }
         return reversedList;
-        /**
-         * Create an ImprovedStack. Assign a list (specific type or general) to it. Want to return an empty object if list is empty
-         * Make adding values to list part of loop that is only entered if this list is not empty in this if loop have
-         * a for loop, where you take the final value of the list and add it to the ImprovedStack this should start at
-         * the index equal to the size -1 and use the add() method to add the value from the get value.
-         * use getreturnvalue to avoid hash codes
-         */
+
     }
-    @Override
     /** Removes the given object from the stack if it is there. Multiple instances of the object are all removed.
      * Classes implementing this method must use method .equals() to check whether the item is in the stack or not.
      * @param object the object to remove
      */
+    /**
+     * Need to go through list, checking if the object matches any of the values
+     * Don't need to return anything as this is a void method
+     * If the list is empty, just skip all the rest of the method
+     * Want to make a holder list, to add the values not matching Object object
+     * Once have finished going through list, want to reassign holder list to original internalList
+     *
+     * Think about other errors, e.g. can skip everything if the object is null
+     */
+    @Override
     public void remove(Object object) {
-        /**
-         * Need to go through list, checking if the object matches any of the values
-         * Don't need to return anything as this is a void method
-         * If the list is empty, just skip all the rest of the method
-         * Want to make a holder list, to add the values not matching Object object
-         * Once have finished going through list, want to reassign holder list to original internalList
-         *
-         * Think about other errors, e.g. can skip everything if the object is null
-         */
         if (!(internalList.isEmpty())) {
             List nonMatchingArrayList = new ArrayList();
             Object currentObject;
@@ -87,40 +76,35 @@ public class ImprovedStackImpl implements ImprovedStack {
             }
         }
     }
-
-    @Override
     /**
      * Returns true if the stack is empty, false otherwise.
      *
      * @return true if the stack is empty, false otherwise.
      */
+    @Override
     public boolean isEmpty() {
         return internalList.isEmpty();
     }
-
-    @Override
     /**
      * Returns the number of items currently in the stack.
      *
      * @return the number of items currently in the stack
      */
+    @Override
     public int size() {
         return internalList.size();
     }
-
-    @Override
     /**
      * Adds an element at the top of the stack.
      *
      * @param item the new item to be added
      */
+    @Override
     public void push(Object item) {
         if (item != null) {
             this.internalList.add(item);
         }
     }
-
-    @Override
     /**
      * Returns the element at the top of the stack. The stack is
      * left unchanged.
@@ -128,6 +112,7 @@ public class ImprovedStackImpl implements ImprovedStack {
      * @return If stack is not empty, the item on the top is returned. If the
      *         stack is empty, an appropriate error.
      */
+    @Override
     public ReturnObject top() {
         if (internalList.isEmpty()) {
             return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
@@ -135,8 +120,6 @@ public class ImprovedStackImpl implements ImprovedStack {
             return internalList.get(this.internalList.size() - 1);
         }
     }
-
-    @Override
     /**
      * Returns the element at the top of the stack. The element is
      * removed frmo the stack.
@@ -144,6 +127,7 @@ public class ImprovedStackImpl implements ImprovedStack {
      * @return If stack is not empty, the item on the top is returned. If the
      *         stack is empty, an appropriate error.
      */
+    @Override
     public ReturnObject pop() {
         if (internalList.isEmpty()) {
             return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);

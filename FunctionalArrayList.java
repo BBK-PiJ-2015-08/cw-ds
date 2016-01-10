@@ -11,7 +11,6 @@ public class FunctionalArrayList extends ArrayList implements FunctionalList {
 	public FunctionalArrayList() {
 		super();
 	}
-	@Override
 	/**
 	 * Returns the element at the beginning of the list.
 	 *
@@ -20,6 +19,7 @@ public class FunctionalArrayList extends ArrayList implements FunctionalList {
 	 * @return a copy of the element at the beginning of the list or
 	 *         an error if the list is empty.
 	 */
+	@Override
 	public ReturnObject head () {
 		if (numberOfItems == 0) {
 			return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
@@ -28,7 +28,6 @@ public class FunctionalArrayList extends ArrayList implements FunctionalList {
 			return new ReturnObjectImpl(this.get(0).getReturnValue());
 		}
 	}
-	@Override
 	/**
 	 * Returns a list with the elements in this list except the
 	 * head. The elements must be in the same order. The original list
@@ -36,6 +35,7 @@ public class FunctionalArrayList extends ArrayList implements FunctionalList {
 	 *
 	 * If the list is empty, another empty list is returned.
 	 */
+	@Override
 	public FunctionalList rest() {
 		FunctionalArrayList storageFAL = new FunctionalArrayList();
 		if (isEmpty()) {

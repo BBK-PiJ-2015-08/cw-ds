@@ -14,12 +14,11 @@ public class LinkedList implements List {
         head = null;
         numberOfNodes = 0;
     }
-
-    @Override
     /**
      * Returns true if the list is empty, false otherwise.
      * @return true if the list is empty, false otherwise.
      */
+    @Override
     public boolean isEmpty() {
         if (size() == 0) {
             return true;
@@ -46,7 +45,6 @@ public class LinkedList implements List {
      *         encapsulated in a ReturnObject
      */
     @Override
-    //not done
     public ReturnObject get(int index) {
         if (isEmpty()) {
             return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
@@ -76,7 +74,6 @@ public class LinkedList implements List {
      *         encapsulated in a ReturnObject
      */
     @Override
-    //not done
     public ReturnObject remove(int index) {
         if (isEmpty()) {
             return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
@@ -157,36 +154,36 @@ public class LinkedList implements List {
             return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
         }
     }
-        /**
-         * Adds an element at the end of the list.
-         *
-         * If a null object is provided to insert in the list, the
-         * request must be ignored and an appropriate error must be
-         * returned.
-         *
-         * @param item the value to insert into the list
-         * @return an ReturnObject, empty if the operation is successful
-         *         or containing an appropriate error message otherwise
-         */
-        @Override
-        public ReturnObject add(Object item) {
-            if (item == null) {
-                return new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
+    /**
+     * Adds an element at the end of the list.
+     *
+     * If a null object is provided to insert in the list, the
+     * request must be ignored and an appropriate error must be
+     * returned.
+     *
+     * @param item the value to insert into the list
+     * @return an ReturnObject, empty if the operation is successful
+     *         or containing an appropriate error message otherwise
+     */
+    @Override
+    public ReturnObject add(Object item) {
+        if (item == null) {
+            return new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
+        } else {
+            Node storedNode = new Node(item);
+            if (head == null) {
+                head = storedNode;
+                numberOfNodes++;
+                return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
             } else {
-                Node storedNode = new Node(item);
-                if (head == null) {
-                    head = storedNode;
-                    numberOfNodes++;
-                    return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
-                } else {
-                    Node current = head;
-                    while (current.getNext() != null) {
-                        current = current.getNext();
-                    }
-                    current.setNext(storedNode);
-                    numberOfNodes++;
-                    return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
+                Node current = head;
+                while (current.getNext() != null) {
+                    current = current.getNext();
                 }
+                current.setNext(storedNode);
+                numberOfNodes++;
+                return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
             }
         }
+    }
 }
