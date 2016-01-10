@@ -55,7 +55,7 @@ public class LinkedList implements List {
         } else {
             Node current = head;
             nodeAt = 0;
-            while (nodeAt < index-1) {
+            while (nodeAt < index) {
                 current = current.getNext();
                 nodeAt++;
             }
@@ -101,12 +101,12 @@ public class LinkedList implements List {
                     current = current.getNext();
                     nodeAt++;
                 }
-                ReturnObject elementRemoved = new ReturnObjectImpl(current.getValue());
+                ReturnObject elementRemoved = new ReturnObjectImpl(current.getNext().getValue());
                 while (nodeAt < numberOfNodes) {
                     current.setNext(current.getNext());
                     nodeAt++;
                 }
-                current.setNext(null);
+                //current.setNext(null);
                 numberOfNodes--;
                 return elementRemoved;
         }
