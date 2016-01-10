@@ -19,12 +19,11 @@ public class ReturnObjectImpl implements ReturnObject {
 		this.err = err;
 	}
 
-	@Override
-
 	/**
 	 * Returns whether there has been an error
 	 * @return whether there has been an error
 	 */
+	@Override
 	public boolean hasError() {
 		if (err != ErrorMessage.NO_ERROR) {
 			return true;
@@ -32,9 +31,6 @@ public class ReturnObjectImpl implements ReturnObject {
 			return false;
 		}
 	}
-
-	@Override
-
 	/**
 	 * Returns the error message.
 	 *
@@ -43,11 +39,11 @@ public class ReturnObjectImpl implements ReturnObject {
 	 *
 	 * @return the error message
 	 */
+	@Override
 	public ErrorMessage getError() {
 		return err;
 	}
 
-	@Override
 	/**
 	 * Returns the object wrapped in this ReturnObject, i.e. the
 	 * result of the operation if it was successful, or null if
@@ -60,6 +56,7 @@ public class ReturnObjectImpl implements ReturnObject {
 	 *
 	 * @return the return value from the method or null if there has been an error
 	 */
+	@Override
 	public Object getReturnValue() {
 		return obj;
 	}

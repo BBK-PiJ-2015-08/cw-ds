@@ -11,13 +11,13 @@ public class SampleableListImpl extends ArrayList implements SampleableList {
         super();
     }
 
-    @Override
     /**
      * Returns a list containing the first, third, fifth...
      * items of this list, or an empty list if the list is empty.
      *
      * @return a list containing the first, third, fifth... items of this list
      */
+    @Override
     public SampleableList sample() {
         SampleableListImpl firstThirdFifth = new SampleableListImpl();
         if (this.isEmpty()) {
@@ -27,8 +27,6 @@ public class SampleableListImpl extends ArrayList implements SampleableList {
             firstThirdFifth.add(this.get(2).getReturnValue());
             firstThirdFifth.add(this.get(4).getReturnValue());
             return firstThirdFifth;
-
         }
     }
-
 }

@@ -18,54 +18,53 @@ public class StackImpl extends AbstractStack {
      * ErrorMessage}).
      */
 
-        /**
-         * Creates a new abstract stack using the provided list as the
-         * underlying data structure.
-         *
-         * Note: This constructor does not check whether the provided list
-         * is null. Programmers must do their own checks. If a null list
-         * is provided, a NullPointerException will be thrown at runtime
-         * as soon as any operation is attempted on the underlying list.
-         *
-         * @param list the list to be used
-         */
-        public StackImpl(List list) {
+    /**
+     * Creates a new abstract stack using the provided list as the
+     * underlying data structure.
+     *
+     * Note: This constructor does not check whether the provided list
+     * is null. Programmers must do their own checks. If a null list
+     * is provided, a NullPointerException will be thrown at runtime
+     * as soon as any operation is attempted on the underlying list.
+     *
+     * @param list the list to be used
+     */
+    public StackImpl(List list) {
             super(list);
         }
 
-        @Override
-        /**
-         * Returns true if the stack is empty, false otherwise.
-         *
-         * @return true if the stack is empty, false otherwise.
-         */
-        public boolean isEmpty() {
+    /**
+     * Returns true if the stack is empty, false otherwise.
+     *
+     * @return true if the stack is empty, false otherwise.
+     */
+    @Override
+    public boolean isEmpty() {
             return this.internalList.isEmpty();
         }
 
-    @Override
     /**
      * Returns the number of items currently in the stack.
      *
      * @return the number of items currently in the stack
      */
+    @Override
     public int size() {
         return internalList.size();
     }
 
-    @Override
     /**
      * Adds an element at the top of the stack.
      *
      * @param item the new item to be added
      */
+    @Override
     public void push(Object item) {
         if (item != null) {
             this.internalList.add(item);
         }
     }
 
-    @Override
     /**
      * Returns the element at the top of the stack. The stack is
      * left unchanged.
@@ -73,6 +72,7 @@ public class StackImpl extends AbstractStack {
      * @return If stack is not empty, the item on the top is returned. If the
      *         stack is empty, an appropriate error.
      */
+    @Override
     public ReturnObject top() {
         if (internalList.isEmpty()) {
             return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
@@ -82,7 +82,6 @@ public class StackImpl extends AbstractStack {
         }
     }
 
-    @Override
     /**
      * Returns the element at the top of the stack. The element is
      * removed frmo the stack.
@@ -90,7 +89,7 @@ public class StackImpl extends AbstractStack {
      * @return If stack is not empty, the item on the top is returned. If the
      *         stack is empty, an appropriate error.
      */
-
+    @Override
     public ReturnObject pop() {
         if (internalList.isEmpty()) {
             return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
