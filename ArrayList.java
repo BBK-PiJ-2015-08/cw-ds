@@ -80,7 +80,7 @@ public class ArrayList implements List {
 		if ((item == null)) {
 			return new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
 		}
-		if ((index%1) != 0) {
+		else if ((index%1) != 0) {
 			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
 		} else if (index < 0 || index>=(this.size())) {
 			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
@@ -88,10 +88,7 @@ public class ArrayList implements List {
 			if (numberOfItems >= max) {
 				increaseSizeTwofold();
 			}
-			j = index;
-			while (!((intArray[j+1]) == null)) {
-				j++;
-			}
+			j = numberOfItems-1;
 			for (int pos = j; pos>=index; pos--) {
 				intArray[pos+1] = intArray[pos];
 			}
