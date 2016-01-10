@@ -53,8 +53,6 @@ public class ArrayList implements List {
 			}
 			intArray[numberOfItems] = null;
 			numberOfItems--;
-			//N.B. making the below a returnobject makes it start returning
-			//hash values.
 			return itemRemoved;
 		}
 	}
@@ -99,7 +97,7 @@ public class ArrayList implements List {
 			}
 			intArray[index] = item;
 			numberOfItems++;
-			return new ReturnObjectImpl(null);
+			return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
 		}
 	}
 
