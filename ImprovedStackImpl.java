@@ -35,11 +35,11 @@ public class ImprovedStackImpl implements ImprovedStack {
      */
     @Override
     public ImprovedStack reverse() {
-        //This compiles but are there any possible errors I need to account for.
         List reversedArrayList = new ArrayList();
         ImprovedStack reversedList = new ImprovedStackImpl(reversedArrayList);
         if (!(internalList.isEmpty())) {
-            for (int s = (internalList.size())-1; s>=0; s--) {
+            int lastIndexInList = internalList.size()-1;
+            for (int s = lastIndexInList; s>=0; s--) {
                 reversedList.push(internalList.get(s).getReturnValue());
             }
         }
@@ -64,7 +64,8 @@ public class ImprovedStackImpl implements ImprovedStack {
         if (!(internalList.isEmpty())) {
             List nonMatchingArrayList = new ArrayList();
             Object currentObject;
-            for (int t = 0; t<=(internalList.size())-1; t++) {
+            int finalIndexPos = internalList.size()-1;
+            for (int t = 0; t <= finalIndexPos; t++) {
                 currentObject = pop().getReturnValue();
                 if (!currentObject.equals(object)) {
                     nonMatchingArrayList.add(currentObject);

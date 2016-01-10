@@ -48,7 +48,8 @@ public class ArrayList implements List {
 			return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
 		} else {
 			ReturnObject itemRemoved = new ReturnObjectImpl(intArray[index]);
-			for (int i = index+1 ; i<numberOfItems; i++) {
+			int shiftUpPoint = index + 1;
+			for (int i = shiftUpPoint ; i<numberOfItems; i++) {
 				intArray[i-1] = intArray[i];
 			}
 			intArray[numberOfItems] = null;
@@ -88,11 +89,10 @@ public class ArrayList implements List {
 			if (numberOfItems >= max) {
 				increaseSizeTwofold();
 			}
-			//j = numberOfItems-1;
-			for (int pos = numberOfItems-1; pos>=index; pos--) {
+			int j = numberOfItems-1;
+			for (int pos = j; pos>=index; pos--) {
 				intArray[pos+1] = intArray[pos];
 			}
-			//
 			intArray[index] = item;
 			numberOfItems++;
 			return new ReturnObjectImpl(ErrorMessage.NO_ERROR);

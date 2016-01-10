@@ -57,7 +57,6 @@ public class LinkedList implements List {
                 current = current.getNext();
                 nodeAt++;
             }
-            //check this is returning in the right format
             return new ReturnObjectImpl(current.getValue());
         }
     }
@@ -86,8 +85,10 @@ public class LinkedList implements List {
             numberOfNodes--;
             return elementRemoved;
         } else if (index == 0) {
+            Node current = head;
             ReturnObject elementRemoved = new ReturnObjectImpl(head.getValue());
-            head = head.getNext();
+            head = current.getNext();
+            current.setNext(null);
             numberOfNodes--;
             return elementRemoved;
         }
@@ -128,8 +129,6 @@ public class LinkedList implements List {
      */
     @Override
     public ReturnObject add(int index, Object item) {
-        //don't forget invalid argument error: Added. Precedence for Invalid
-        //Argument over Index_Out_Of_bounds?
         if (item == null) {
             return new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
         } else if (index < 0 || index > numberOfNodes) {
@@ -139,7 +138,6 @@ public class LinkedList implements List {
         if (isEmpty()) {
             head = storageNode;
             numberOfNodes++;
-            //check that this should be returning the item
             return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
         } else {
             nodeAt = 0;
