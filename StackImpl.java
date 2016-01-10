@@ -40,7 +40,7 @@ public class StackImpl extends AbstractStack {
      */
     @Override
     public boolean isEmpty() {
-            return this.internalList.isEmpty();
+            return internalList.isEmpty();
         }
 
     /**
@@ -61,7 +61,7 @@ public class StackImpl extends AbstractStack {
     @Override
     public void push(Object item) {
         if (item != null) {
-            this.internalList.add(item);
+            internalList.add(item);
         }
     }
 
@@ -77,7 +77,7 @@ public class StackImpl extends AbstractStack {
         if (internalList.isEmpty()) {
             return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
         } else {
-            return internalList.get(this.internalList.size() - 1);
+            return internalList.get(size() - 1);
 
         }
     }
@@ -94,7 +94,7 @@ public class StackImpl extends AbstractStack {
         if (internalList.isEmpty()) {
             return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
         } else {
-            return internalList.remove(this.internalList.size()-1);
+            return internalList.remove(size()-1);
         }
     }
 }
