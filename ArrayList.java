@@ -50,18 +50,6 @@ public class ArrayList implements List {
 			Object[] alOneSmaller = new Object[max];
 			ReturnObject itemRemoved = new ReturnObjectImpl(intArray[index]);
 			int numberOfItemsOneSmaller = numberOfItems - 1;
-			/**
-			for (int i = 0; i < numberOfItemsOneSmaller; i++) {
-				if (i < index) {
-					alOneSmaller[i] = intArray[i];
-				} else if (i == index && index == numberOfItemsOneSmaller) {
-
-				}
-				else {
-					alOneSmaller[i] = intArray[i+1];
-				}
-			}
-			*/
 			for (int i = 0; i < index; i++ ) {
 				alOneSmaller[i] = intArray[i];
 			}

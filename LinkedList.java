@@ -104,7 +104,6 @@ public class LinkedList implements List {
                 current.setNext(current.getNext());
                 nodeAt++;
             }
-            //current.setNext(null);
             numberOfNodes--;
             return elementRemoved;
         }
