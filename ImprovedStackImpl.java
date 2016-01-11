@@ -123,7 +123,7 @@ public class ImprovedStackImpl implements ImprovedStack {
     @Override
     public void push(Object item) {
         if (item != null) {
-            this.internalList.add(item);
+            this.internalList.push(item);
         }
     }
     /**
