@@ -70,13 +70,18 @@ public class ImprovedStackImpl implements ImprovedStack {
             ImprovedStackImpl reversedWithoutObject = new ImprovedStackImpl();
             Object currentObject;
             while (internalList.size() != 0) {
-                currentObject = pop().getReturnValue();
+                currentObject = internalList.pop().getReturnValue();
                 if (!currentObject.equals(object)) {
                     reversedWithoutObject.push(currentObject);
                 }
             }
+            Object storageObject;
+            while (reversedWithoutObject.size() != 0) {
+                storageObject = reversedWithoutObject.pop().getReturnValue();
+                internalList.push(storageObject);
+            }
 
-
+            /**
             Object currentObject;
             int finalIndexPos = internalList.size()-1;
             for (int t = 0; t <= finalIndexPos; t++) {
@@ -89,6 +94,7 @@ public class ImprovedStackImpl implements ImprovedStack {
             for (int v = 0; v<=upperBound; v++) {
                 this.push(nonMatchingArrayList.get(v).getReturnValue());
             }
+             */
         }
     }
     /**
@@ -147,7 +153,7 @@ public class ImprovedStackImpl implements ImprovedStack {
         if (internalList.isEmpty()) {
             return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
         } else {
-            return this.internalList.remove(size()-1);
+            return this.internalList.pop();
         }
     }
 }
