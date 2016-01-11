@@ -92,21 +92,21 @@ public class LinkedList implements List {
             numberOfNodes--;
             return elementRemoved;
         }
-            else {
-                Node current = head;
-                nodeAt = 0;
-                while (nodeAt < index - 1) {
-                    current = current.getNext();
-                    nodeAt++;
-                }
-                ReturnObject elementRemoved = new ReturnObjectImpl(current.getNext().getValue());
-                while (nodeAt < numberOfNodes) {
-                    current.setNext(current.getNext());
-                    nodeAt++;
-                }
-                //current.setNext(null);
-                numberOfNodes--;
-                return elementRemoved;
+        else {
+            Node current = head;
+            nodeAt = 0;
+            while (nodeAt < index - 1) {
+                current = current.getNext();
+                nodeAt++;
+            }
+            ReturnObject elementRemoved = new ReturnObjectImpl(current.getNext().getValue());
+            while (nodeAt < numberOfNodes) {
+                current.setNext(current.getNext());
+                nodeAt++;
+            }
+            //current.setNext(null);
+            numberOfNodes--;
+            return elementRemoved;
         }
     }
     /**
