@@ -39,15 +39,17 @@ public class ImprovedStackImpl implements ImprovedStack {
      */
     @Override
     public ImprovedStack reverse() {
-        ImprovedStack originalOrder = new ImprovedStackImpl(internalList);
         ImprovedStack reversedList = new ImprovedStackImpl();
+        ImprovedStack storageListForRebuilding = new ImprovedStackImpl();
         Object objectToAdd;
         while (internalList.size() != 0 ) {
             objectToAdd = internalList.pop().getReturnValue();
             reversedList.push(objectToAdd);
+            storageListForRebuilding.push(objectToAdd);
+
         }
-        while (originalOrder.size() != 0) {
-            objectToAdd = originalOrder.pop().getReturnValue();
+        while (storageListForRebuilding.size() != 0) {
+            objectToAdd = storageListForRebuilding.pop().getReturnValue();
             internalList.push(objectToAdd);
         }
         return reversedList;
