@@ -66,8 +66,6 @@ public class ImprovedStackImpl implements ImprovedStack {
     @Override
     public void remove(Object object) {
         if (!(internalList.isEmpty())) {
-            //List nonMatchingArrayList = new ArrayList();
-            //ImprovedStack reversedList = new ImprovedStackImpl(reversedArrayList);
             ImprovedStack reversedWithoutObject = new ImprovedStackImpl();
             Object currentObject;
             while (internalList.size() != 0) {
@@ -81,21 +79,6 @@ public class ImprovedStackImpl implements ImprovedStack {
                 storageObject = reversedWithoutObject.pop().getReturnValue();
                 internalList.push(storageObject);
             }
-
-            /**
-            Object currentObject;
-            int finalIndexPos = internalList.size()-1;
-            for (int t = 0; t <= finalIndexPos; t++) {
-                currentObject = pop().getReturnValue();
-                if (!currentObject.equals(object)) {
-                    nonMatchingArrayList.add(currentObject);
-                }
-            }
-            int upperBound = nonMatchingArrayList.size() - 1;
-            for (int v = 0; v<=upperBound; v++) {
-                this.push(nonMatchingArrayList.get(v).getReturnValue());
-            }
-             */
         }
     }
     /**
