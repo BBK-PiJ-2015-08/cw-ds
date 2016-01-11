@@ -47,17 +47,12 @@ public class ArrayList implements List {
 		} else if (this.isEmpty()) {
 			return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
 		} else {
-			Object[] alOneSmaller = new Object[max];
 			ReturnObject itemRemoved = new ReturnObjectImpl(intArray[index]);
-			int numberOfItemsOneSmaller = numberOfItems - 1;
-			for (int i = 0; i < index; i++ ) {
-				alOneSmaller[i] = intArray[i];
+			int shiftUpPoint = index + 1;
+			for (int i = shiftUpPoint ; i<numberOfItems; i++) {
+				intArray[i-1] = intArray[i];
 			}
-			int oneAfterIndex = index+1;
-			for (int i=oneAfterIndex; i<numberOfItemsOneSmaller; i++) {
-				alOneSmaller[i] = intArray[i+1];
-			}
-			this.intArray = alOneSmaller;
+			intArray[numberOfItems] = null;
 			numberOfItems--;
 			return itemRemoved;
 		}
@@ -116,6 +111,7 @@ public class ArrayList implements List {
 	 */
 	@Override
 	public ReturnObject add(Object item) {
+
 		if (item == null) {
 			return new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
 		}
