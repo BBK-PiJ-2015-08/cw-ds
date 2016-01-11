@@ -46,14 +46,12 @@ public class ImprovedStackImpl implements ImprovedStack {
             objectToAdd = internalList.pop().getReturnValue();
             reversedList.push(objectToAdd);
             storageListForRebuilding.push(objectToAdd);
-
         }
         while (storageListForRebuilding.size() != 0) {
             objectToAdd = storageListForRebuilding.pop().getReturnValue();
             internalList.push(objectToAdd);
         }
         return reversedList;
-
     }
     /** Removes the given object from the stack if it is there. Multiple instances of the object are all removed.
      * Classes implementing this method must use method .equals() to check whether the item is in the stack or not.
