@@ -15,12 +15,16 @@
  of type List.
  */
 public class ImprovedStackImpl implements ImprovedStack {
-    private Stack internalList;
+    protected Stack internalList;
+
+    public ImprovedStackImpl() {
+        internalList = new StackImpl(new ArrayList());
+    }
 
     public ImprovedStackImpl(List list) {
         internalList = new StackImpl(list);
     }
-    
+
     /**
      * Returns a copy of this stack with the items reversed, the top
      * elements on the original stack is at the bottom of the new
@@ -64,7 +68,7 @@ public class ImprovedStackImpl implements ImprovedStack {
         if (!(internalList.isEmpty())) {
             //List nonMatchingArrayList = new ArrayList();
             //ImprovedStack reversedList = new ImprovedStackImpl(reversedArrayList);
-            ImprovedStackImpl reversedWithoutObject = new ImprovedStackImpl();
+            ImprovedStack reversedWithoutObject = new ImprovedStackImpl();
             Object currentObject;
             while (internalList.size() != 0) {
                 currentObject = internalList.pop().getReturnValue();
