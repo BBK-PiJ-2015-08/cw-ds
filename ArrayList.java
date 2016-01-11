@@ -49,7 +49,6 @@ public class ArrayList implements List {
 		} else {
 			Object[] alOneSmaller = new Object[max-1];
 			ReturnObject itemRemoved = new ReturnObjectImpl(intArray[index]);
-			int shiftUpPoint = index + 1;
 			for (int i = 0; i < numberOfItems; i++) {
 				if (i < index) {
 					alOneSmaller[i] = intArray[i];
@@ -62,12 +61,6 @@ public class ArrayList implements List {
 			this.intArray = alOneSmaller;
 			numberOfItems--;
 			return itemRemoved;
-			/**
-			 for (int i = shiftUpPoint ; i<numberOfItems; i++) {
-			 intArray[i-1] = intArray[i];
-			 }
-			 intArray[numberOfItems] = null;
-			 */
 		}
 	}
 	/**
