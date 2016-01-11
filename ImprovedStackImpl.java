@@ -15,8 +15,13 @@
  of type List.
  */
 public class ImprovedStackImpl implements ImprovedStack {
+    private Stack internalList;
 
-    Stack internalList = new StackImpl();
+    public ImprovedStackImpl(List list) {
+        internalList = new StackImpl(list);
+    }
+
+    //Stack internalList = new StackImpl();
     /**
     private List internalList;
 
@@ -138,7 +143,7 @@ public class ImprovedStackImpl implements ImprovedStack {
         if (internalList.isEmpty()) {
             return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
         } else {
-            return internalList.get(this.internalList.size() - 1);
+            return internalList.top();
         }
     }
     /**
