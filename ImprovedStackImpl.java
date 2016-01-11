@@ -39,6 +39,13 @@ public class ImprovedStackImpl implements ImprovedStack {
      */
     @Override
     public ImprovedStack reverse() {
+        ImprovedStack reversedList = new ImprovedStackImpl();
+        Object objectToAdd;
+        while (internalList.size() != 0 ) {
+            objectToAdd = internalList.pop().getReturnValue();
+            reversedList.push(objectToAdd);
+        }
+        /**
         List reversedArrayList = new ArrayList();
         ImprovedStack reversedList = new ImprovedStackImpl(reversedArrayList);
         if (!(internalList.isEmpty())) {
@@ -47,6 +54,7 @@ public class ImprovedStackImpl implements ImprovedStack {
                 reversedList.push(internalList.get(s).getReturnValue());
             }
         }
+         */
         return reversedList;
 
     }
