@@ -45,16 +45,6 @@ public class ImprovedStackImpl implements ImprovedStack {
             objectToAdd = internalList.pop().getReturnValue();
             reversedList.push(objectToAdd);
         }
-        /**
-        List reversedArrayList = new ArrayList();
-        ImprovedStack reversedList = new ImprovedStackImpl(reversedArrayList);
-        if (!(internalList.isEmpty())) {
-            int lastIndexInList = internalList.size()-1;
-            for (int s = lastIndexInList; s>=0; s--) {
-                reversedList.push(internalList.get(s).getReturnValue());
-            }
-        }
-         */
         return reversedList;
 
     }
