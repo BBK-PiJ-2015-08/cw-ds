@@ -79,10 +79,8 @@ public class ImprovedStackImpl implements ImprovedStack {
                     reversedWithoutObject.push(currentObject);
                 }
             }
-            Object storageObject;
             while (reversedWithoutObject.size() != 0) {
-                storageObject = reversedWithoutObject.pop().getReturnValue();
-                internalList.push(storageObject);
+                internalList.push(reversedWithoutObject.pop().getReturnValue());
             }
         }
     }
