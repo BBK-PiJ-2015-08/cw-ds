@@ -47,13 +47,12 @@ public class ArrayList implements List {
 		} else if (this.isEmpty()) {
 			return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
 		} else {
-			Object[] alOneSmaller = new Object[max-1];
+			Object[] alOneSmaller = new Object[max];
 			ReturnObject itemRemoved = new ReturnObjectImpl(intArray[index]);
-			for (int i = 0; i < numberOfItems; i++) {
+			int numberOfItemsOneSmaller = numberOfItems - 1;
+			for (int i = 0; i < numberOfItemsOneSmaller; i++) {
 				if (i < index) {
 					alOneSmaller[i] = intArray[i];
-				} else if (i == index) {
-
 				} else if (i > index) {
 					alOneSmaller[i] =  intArray[i+1];
 				}
