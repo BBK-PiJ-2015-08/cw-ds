@@ -20,15 +20,7 @@ public class ImprovedStackImpl implements ImprovedStack {
     public ImprovedStackImpl(List list) {
         internalList = new StackImpl(list);
     }
-
-    //Stack internalList = new StackImpl();
-    /**
-    private List internalList;
-
-    public ImprovedStackImpl(List list) {
-        this.internalList = list;
-    }
-    */
+    
     /**
      * Returns a copy of this stack with the items reversed, the top
      * elements on the original stack is at the bottom of the new
