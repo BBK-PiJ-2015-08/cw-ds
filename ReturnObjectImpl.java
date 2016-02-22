@@ -25,11 +25,7 @@ public class ReturnObjectImpl implements ReturnObject {
 	 */
 	@Override
 	public boolean hasError() {
-		if (err != ErrorMessage.NO_ERROR) {
-			return true;
-		} else {
-			return false;
-		}
+		return (err != ErrorMessage.NO_ERROR);
 	}
 	/**
 	 * Returns the error message.
