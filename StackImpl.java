@@ -84,7 +84,7 @@ public class StackImpl extends AbstractStack {
 
     /**
      * Returns the element at the top of the stack. The element is
-     * removed frmo the stack.
+     * removed from the stack.
      *
      * @return If stack is not empty, the item on the top is returned. If the
      *         stack is empty, an appropriate error.

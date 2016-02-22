@@ -18,12 +18,7 @@ public class ArrayList implements List {
 
 	@Override
 	public boolean isEmpty() {
-		if (numberOfItems==0) {
-			return true;
-		}
-		else {
-			return false;
-		}
+		return (numberOfItems==0);
 	}
 
 	@Override
@@ -111,7 +106,6 @@ public class ArrayList implements List {
 	 */
 	@Override
 	public ReturnObject add(Object item) {
-
 		if (item == null) {
 			return new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
 		}
