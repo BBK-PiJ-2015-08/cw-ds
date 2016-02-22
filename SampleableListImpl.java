@@ -19,14 +19,14 @@ public class SampleableListImpl extends ArrayList implements SampleableList {
      */
     @Override
     public SampleableList sample() {
-        SampleableListImpl firstThirdFifth = new SampleableListImpl();
+        SampleableListImpl oddItems = new SampleableListImpl();
         if (this.isEmpty()) {
-            return firstThirdFifth;
+            return oddItems;
         } else {
-            firstThirdFifth.add(this.get(0).getReturnValue());
-            firstThirdFifth.add(this.get(2).getReturnValue());
-            firstThirdFifth.add(this.get(4).getReturnValue());
-            return firstThirdFifth;
+            for (int i=0; i<this.size(); i+=2) {
+                oddItems.add(this.get(i).getReturnValue());
+            }
+            return oddItems;
         }
     }
 }
