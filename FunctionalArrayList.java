@@ -33,13 +33,11 @@ public class FunctionalArrayList extends ArrayList implements FunctionalList {
 	@Override
 	public FunctionalList rest() {
 		FunctionalArrayList storageFAL = new FunctionalArrayList();
-		if (isEmpty()) {
-			return storageFAL;
-		} else {
+		if (!isEmpty()) {
 			for (int i = 1; i<size(); i++) {
 				storageFAL.add(this.get(i).getReturnValue());
 			}
-			return storageFAL;
 		}
+		return storageFAL;
 	}
 }
