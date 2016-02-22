@@ -1,3 +1,6 @@
+/**
+ * @author Jade Dickinson jdicki04
+ */
 public class ArrayList implements List {
 	protected Object[] intArray;
 	protected final static int DEFAULT_SIZE = 32;

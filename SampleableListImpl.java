@@ -1,3 +1,6 @@
+/**
+ * @author Jade Dickinson jdicki04
+ */
 public class SampleableListImpl extends ArrayList implements SampleableList {
     public SampleableListImpl() {
         super();

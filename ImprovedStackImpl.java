@@ -1,8 +1,8 @@
 /**
  * An implementation of a stack with additional methods.
  *
- * Classes implementing this interface must use a {@see List} as the
- * underlying data structure to store the elements on the stack.
+ * Must use a {@see List} as the underlying data structure to store
+ * the elements on the stack.
  *
  * Not all operations on a stack will always be successful. For
  * example, a programmer may try to pop an element from an empty
@@ -13,6 +13,10 @@
  * ErrorMessage}).
  * This class must have only one constructor with only one parameter
  of type List.
+ */
+
+/**
+ * @author Jade Dickinson jdicki04
  */
 public class ImprovedStackImpl implements ImprovedStack {
     protected Stack internalList;

@@ -1,3 +1,6 @@
+/**
+ * @author Jade Dickinson jdicki04
+ */
 public class LinkedList implements List {
     protected int nodeAt;
     protected int numberOfNodes;

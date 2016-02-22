@@ -5,6 +5,10 @@
  * for failed operations must receive an ErrorMessage as its only
  * parameter
  */
+
+/**
+ * @author Jade Dickinson jdicki04
+ */
 public class ReturnObjectImpl implements ReturnObject {
 	private Object obj;
 	private ErrorMessage err;

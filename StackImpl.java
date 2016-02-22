@@ -4,6 +4,10 @@
  parameter of type List (i.e. a stack can be created using either
  an ArrayList or a LinkedList as the underlying data structure).
  */
+
+/**
+ * @author Jade Dickinson jdicki04
+ */
 public class StackImpl extends AbstractStack {
     /**
      * An implementation of a stack that uses a {@List} as the underlying
