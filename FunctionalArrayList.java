@@ -15,11 +15,7 @@ public class FunctionalArrayList extends ArrayList implements FunctionalList {
 	 */
 	@Override
 	public ReturnObject head () {
-		if (numberOfItems == 0) {
-			return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
-		} else {
-			return new ReturnObjectImpl(this.get(0).getReturnValue());
-		}
+		return new ReturnObjectImpl(this.get(0).getReturnValue());
 	}
 	/**
 	 * Returns a list with the elements in this list except the
