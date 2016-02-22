@@ -6,7 +6,6 @@ public class ArrayList implements List {
 	protected final static int DEFAULT_SIZE = 32;
 	protected int max = 32;
 	protected int numberOfItems = 0;
-	protected int j = 0;
 
 	public ArrayList() {
 		intArray = new Object[DEFAULT_SIZE];
