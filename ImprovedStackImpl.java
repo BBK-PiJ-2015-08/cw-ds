@@ -6,7 +6,7 @@
  *
  * Not all operations on a stack will always be successful. For
  * example, a programmer may try to pop an element from an empty
- * stack. Since we hace not covered exceptions yet, we need another
+ * stack. Since we have not covered exceptions yet, we need another
  * mechanism to report errors. In order to do that, methods of this
  * list will return a {@see ReturnObject} that will contain either an
  * object or an error value of the right kind (as defined in {@see
@@ -31,11 +31,6 @@ public class ImprovedStackImpl implements ImprovedStack {
      * stack and viceversa.
      *
      * @return a copy of this stack with the items reversed.
-     * Create an ImprovedStack. Assign a list (specific type or general) to it. Want to return an empty object if list is empty
-     * Make adding values to list part of loop that is only entered if this list is not empty in this if loop have
-     * a for loop, where you take the final value of the list and add it to the ImprovedStack this should start at
-     * the index equal to the size -1 and use the add() method to add the value from the get value.
-     * use getreturnvalue to avoid hash codes
      */
     @Override
     public ImprovedStack reverse() {
@@ -56,15 +51,6 @@ public class ImprovedStackImpl implements ImprovedStack {
     /** Removes the given object from the stack if it is there. Multiple instances of the object are all removed.
      * Classes implementing this method must use method .equals() to check whether the item is in the stack or not.
      * @param object the object to remove
-     */
-    /**
-     * Need to go through list, checking if the object matches any of the values
-     * Don't need to return anything as this is a void method
-     * If the list is empty, just skip all the rest of the method
-     * Want to make a holder list, to add the values not matching Object object
-     * Once have finished going through list, want to reassign holder list to original internalList
-     *
-     * Think about other errors, e.g. can skip everything if the object is null
      */
     @Override
     public void remove(Object object) {
