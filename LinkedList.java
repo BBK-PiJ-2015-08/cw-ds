@@ -1,10 +1,3 @@
-/**
- * Most classes must have only the default constructor, with no
- * arguments. The exceptions are described below. Classes may not
- * have any constructor not described in this document — be careful
- * about this because using the wrong constructors may result in
- * your code not compiling with the automatic tests used for grading.
- */
 public class LinkedList implements List {
     protected int nodeAt;
     protected int numberOfNodes;
@@ -62,8 +55,8 @@ public class LinkedList implements List {
     }
     /**
      * Returns the elements at the given position and removes it
-     * from the list. The indeces of elements after the removed
-     * element must be updated accordignly.
+     * from the list. The indices of elements after the removed
+     * element must be updated accordingly.
      *
      * If the index is negative or greater or equal than the size of
      * the list, then an appropriate error must be returned.
@@ -108,8 +101,8 @@ public class LinkedList implements List {
     }
     /**
      * Adds an element to the list, inserting it at the given
-     * position. The indeces of elements at and after that position
-     * must be updated accordignly.
+     * position. The indices of elements at and after that position
+     * must be updated accordingly.
      *
      * If the index is negative or greater or equal than the size of
      * the list, then an appropriate error must be returned.
