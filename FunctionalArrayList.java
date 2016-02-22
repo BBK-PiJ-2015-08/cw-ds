@@ -23,8 +23,7 @@ public class FunctionalArrayList extends ArrayList implements FunctionalList {
 	public ReturnObject head () {
 		if (numberOfItems == 0) {
 			return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
-		}
-		else {
+		} else {
 			return new ReturnObjectImpl(this.get(0).getReturnValue());
 		}
 	}

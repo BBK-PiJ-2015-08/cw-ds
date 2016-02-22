@@ -76,8 +76,7 @@ public class LinkedList implements List {
     public ReturnObject remove(int index) {
         if (isEmpty()) {
             return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
-        }
-        else if (index < 0 || index>=numberOfNodes) {
+        } else if (index < 0 || index>=numberOfNodes) {
             return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
         } else if (numberOfNodes == 1) {
             ReturnObject elementRemoved = new ReturnObjectImpl(head.getValue());
@@ -91,8 +90,7 @@ public class LinkedList implements List {
             current.setNext(null);
             numberOfNodes--;
             return elementRemoved;
-        }
-        else {
+        } else {
             Node current = head;
             nodeAt = 0;
             while (nodeAt < index - 1) {
@@ -171,7 +169,6 @@ public class LinkedList implements List {
             if (head == null) {
                 head = storedNode;
                 numberOfNodes++;
-                return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
             } else {
                 Node current = head;
                 while (current.getNext() != null) {
@@ -179,8 +176,8 @@ public class LinkedList implements List {
                 }
                 current.setNext(storedNode);
                 numberOfNodes++;
-                return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
             }
+            return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
         }
     }
 }

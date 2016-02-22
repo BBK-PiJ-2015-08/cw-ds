@@ -30,8 +30,8 @@ public class StackImpl extends AbstractStack {
      * @param list the list to be used
      */
     public StackImpl(List list) {
-            super(list);
-        }
+        super(list);
+    }
 
     /**
      * Returns true if the stack is empty, false otherwise.
@@ -40,8 +40,8 @@ public class StackImpl extends AbstractStack {
      */
     @Override
     public boolean isEmpty() {
-            return internalList.isEmpty();
-        }
+        return internalList.isEmpty();
+    }
 
     /**
      * Returns the number of items currently in the stack.
@@ -78,7 +78,6 @@ public class StackImpl extends AbstractStack {
             return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
         } else {
             return internalList.get(size() - 1);
-
         }
     }
 
