@@ -5,6 +5,7 @@ public class LinkedList implements List {
     protected int nodeAt;
     protected int numberOfNodes;
     protected Node head;
+    protected Node current;
     protected final static int onlyOneNode = 1;
 
     public LinkedList() {
@@ -100,7 +101,7 @@ public class LinkedList implements List {
             numberOfNodes--;
             return elementRemoved;
         } else {
-            Node current = head;
+            current = head;
             nodeAt = 0;
             while (nodeAt < index - 1) {
                 current = current.getNext();
