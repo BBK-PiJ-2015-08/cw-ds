@@ -5,6 +5,7 @@ public class LinkedList implements List {
     protected int nodeAt;
     protected int numberOfNodes;
     protected Node head;
+    protected final static int onlyOneNode = 1;
 
     public LinkedList() {
         head = null;
@@ -86,7 +87,7 @@ public class LinkedList implements List {
             return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
         } else if (index < 0 || index>=numberOfNodes) {
             return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
-        } else if (numberOfNodes == 1) {
+        } else if (numberOfNodes == onlyOneNode) {
             ReturnObject elementRemoved = new ReturnObjectImpl(head.getValue());
             head = null;
             numberOfNodes--;
