@@ -57,11 +57,12 @@ public class LinkedList implements List {
      */
     @Override
     public ReturnObject get(int index) {
+        ReturnObject elementGotOrError;
         if (isEmpty()) {
-            return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
+            elementGotOrError = ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
         } else {
             if (index < 0 || index >= numberOfNodes) {
-                return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
+                elementGotOrError = ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
             } else {
                 Node current = head;
                 nodeAt = 0;
@@ -69,9 +70,10 @@ public class LinkedList implements List {
                     current = current.getNext();
                     nodeAt++;
                 }
-                return new ReturnObjectImpl(current.getValue());
+                elementGotOrError = new ReturnObjectImpl(current.getValue());
             }
         }
+        return elementGotOrError;
     }
     /**
      * Returns the elements at the given position and removes it
