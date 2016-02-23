@@ -58,16 +58,18 @@ public class LinkedList implements List {
     public ReturnObject get(int index) {
         if (isEmpty()) {
             return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
-        } else if (index<0 || index>=numberOfNodes){
-            return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
         } else {
-            Node current = head;
-            nodeAt = 0;
-            while (nodeAt < index) {
-                current = current.getNext();
-                nodeAt++;
+            if (index < 0 || index >= numberOfNodes) {
+                return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
+            } else {
+                Node current = head;
+                nodeAt = 0;
+                while (nodeAt < index) {
+                    current = current.getNext();
+                    nodeAt++;
+                }
+                return new ReturnObjectImpl(current.getValue());
             }
-            return new ReturnObjectImpl(current.getValue());
         }
     }
     /**
