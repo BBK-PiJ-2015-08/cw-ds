@@ -5,7 +5,6 @@
  * for failed operations must receive an ErrorMessage as its only
  * parameter
  */
-
 /**
  * @author Jade Dickinson jdicki04
  */

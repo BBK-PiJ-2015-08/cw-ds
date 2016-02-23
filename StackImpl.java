@@ -14,12 +14,10 @@
  * object or an error value of the right kind (as defined in {@see
  * ErrorMessage}).
  */
-
 /**
  * @author Jade Dickinson jdicki04
  */
 public class StackImpl extends AbstractStack {
-
     /**
      * Creates a new abstract stack using the provided list as the
      * underlying data structure.

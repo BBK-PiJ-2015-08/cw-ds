@@ -2,7 +2,7 @@
  * @author Jade Dickinson jdicki04
  */
 public class ImprovedStackImpl implements ImprovedStack {
-    protected Stack internalList;
+    private Stack internalList;
 
     public ImprovedStackImpl(List list) {
         internalList = new StackImpl(list);

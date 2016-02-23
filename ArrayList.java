@@ -2,10 +2,10 @@
  * @author Jade Dickinson jdicki04
  */
 public class ArrayList implements List {
-	protected Object[] intArray;
-	protected final static int DEFAULT_SIZE = 32;
-	protected int max = 32;
-	protected int numberOfItems = 0;
+	private Object[] intArray;
+	private final static int DEFAULT_SIZE = 32;
+	private int max = 32;
+	private int numberOfItems = 0;
 
 	public ArrayList() {
 		intArray = new Object[DEFAULT_SIZE];
