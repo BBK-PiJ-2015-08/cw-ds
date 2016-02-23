@@ -4,9 +4,9 @@
 public class LinkedList implements List {
     private int nodeAt;
     private int numberOfNodes;
-    private Node head;
-    private Node current;
-    private Node storedNode;
+    protected Node head;
+    protected Node current;
+    protected Node storedNode;
     private final static int onlyOneNode = 1;
 
     public LinkedList() {

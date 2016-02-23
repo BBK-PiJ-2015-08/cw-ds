@@ -31,7 +31,7 @@ public class FunctionalLinkedList extends LinkedList implements FunctionalList {
         if (isEmpty()) {
             return storageFLL;
         } else {
-            Node current = head.getNext();
+            current = head.getNext();
             storageFLL.add(current.getValue());
             while (current.getNext() != null) {
                 current = current.getNext();
