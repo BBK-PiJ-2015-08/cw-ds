@@ -29,7 +29,7 @@ public class ReturnObjectImpl implements ReturnObject {
 	 */
 	@Override
 	public boolean hasError() {
-		return (err != ErrorMessage.NO_ERROR);
+		return err != ErrorMessage.NO_ERROR;
 	}
 	/**
 	 * Returns the error message.
