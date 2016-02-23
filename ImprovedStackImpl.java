@@ -13,8 +13,8 @@ public class ImprovedStackImpl implements ImprovedStack {
      */
     @Override
     public ImprovedStack reverse() {
-        Stack reversedList = new ImprovedStackImpl();
-        Stack storageListForRebuilding = new ImprovedStackImpl();
+        Stack reversedList = new ImprovedStackImpl(new ArrayList());
+        Stack storageListForRebuilding = new ImprovedStackImpl(new ArrayList());
         Object objectToAdd;
         while (!internalList.top().hasError() ) {
             objectToAdd = internalList.pop().getReturnValue();
@@ -34,7 +34,7 @@ public class ImprovedStackImpl implements ImprovedStack {
     @Override
     public void remove(Object object) {
         if (!(internalList.isEmpty())) {
-            Stack reversedWithoutObject = new ImprovedStackImpl();
+            Stack reversedWithoutObject = new ImprovedStackImpl(new ArrayList());
             Object currentObject;
             while (internalList.size() != 0) {
                 currentObject = internalList.pop().getReturnValue();
