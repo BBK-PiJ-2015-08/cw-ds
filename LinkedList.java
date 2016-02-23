@@ -35,7 +35,7 @@ public class LinkedList implements List {
      */
     @Override
     public boolean isEmpty() {
-        return (size() == 0);
+        return size() == 0;
     }
     /**
      * Returns the number of items currently in the list.
