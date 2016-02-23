@@ -17,10 +17,10 @@ public class ImprovedStackImpl implements ImprovedStack {
      */
     @Override
     public ImprovedStack reverse() {
-        ImprovedStack reversedList = new ImprovedStackImpl();
-        ImprovedStack storageListForRebuilding = new ImprovedStackImpl();
+        Stack reversedList = new ImprovedStackImpl();
+        Stack storageListForRebuilding = new ImprovedStackImpl();
         Object objectToAdd;
-        while (internalList.size() != 0 ) {
+        while (!internalList.top().hasError() ) {
             objectToAdd = internalList.pop().getReturnValue();
             reversedList.push(objectToAdd);
             storageListForRebuilding.push(objectToAdd);
@@ -29,16 +29,18 @@ public class ImprovedStackImpl implements ImprovedStack {
             objectToAdd = storageListForRebuilding.pop().getReturnValue();
             internalList.push(objectToAdd);
         }
-        return reversedList;
+        return (ImprovedStack) reversedList;
     }
-    /** Removes the given object from the stack if it is there. Multiple instances of the object are all removed.
-     * Classes implementing this method must use method .equals() to check whether the item is in the stack or not.
+    /** Removes the given object from the stack if it is there. Multiple
+     * instances of the object are all removed.
+     * Classes implementing this method must use method .equals() to check
+     * whether the item is in the stack or not.
      * @param object the object to remove
      */
     @Override
     public void remove(Object object) {
         if (!(internalList.isEmpty())) {
-            ImprovedStack reversedWithoutObject = new ImprovedStackImpl();
+            Stack reversedWithoutObject = new ImprovedStackImpl();
             Object currentObject;
             while (internalList.size() != 0) {
                 currentObject = internalList.pop().getReturnValue();
@@ -73,7 +75,7 @@ public class ImprovedStackImpl implements ImprovedStack {
     @Override
     public void push(Object item) {
         if (item != null) {
-            this.internalList.push(item);
+            internalList.push(item);
         }
     }
     /**
