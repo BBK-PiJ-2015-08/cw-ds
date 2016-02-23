@@ -69,21 +69,21 @@ public class ArrayList implements List {
 	public ReturnObject add(int index, Object item) {
 		if (item == null) {
 			return new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
-		} else if (index%1 != 0) {
-			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
-		} else if (index < 0 || index>=(this.size())) {
-			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
 		} else {
-			if (numberOfItems >= max) {
-				increaseSizeTwofold();
+			if (index < 0 || index >= (this.size())) {
+				return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
+			} else {
+				if (numberOfItems >= max) {
+					increaseSizeTwofold();
+				}
+				int j = numberOfItems - 1;
+				for (int pos = j; pos >= index; pos--) {
+					intArray[pos + 1] = intArray[pos];
+				}
+				intArray[index] = item;
+				numberOfItems++;
+				return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
 			}
-			int j = numberOfItems-1;
-			for (int pos = j; pos>=index; pos--) {
-				intArray[pos+1] = intArray[pos];
-			}
-			intArray[index] = item;
-			numberOfItems++;
-			return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
 		}
 	}
 	/**
