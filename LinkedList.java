@@ -59,10 +59,10 @@ public class LinkedList implements List {
     public ReturnObject get(int index) {
         ReturnObject elementGotOrError;
         if (isEmpty()) {
-            elementGotOrError = ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
+            elementGotOrError = new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
         } else {
             if (index < 0 || index >= numberOfNodes) {
-                elementGotOrError = ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
+                elementGotOrError = new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
             } else {
                 Node current = head;
                 nodeAt = 0;
