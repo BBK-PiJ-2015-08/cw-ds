@@ -87,22 +87,21 @@ public class LinkedList implements List {
      */
     @Override
     public ReturnObject remove(int index) {
+        ReturnObject elementRemoved;
         if (isEmpty()) {
-            return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
+            elementRemoved = new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
         } else if (index < 0 || index>=numberOfNodes) {
-            return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
+            elementRemoved = new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
         } else if (numberOfNodes == onlyOneNode) {
-            ReturnObject elementRemoved = new ReturnObjectImpl(head.getValue());
+            elementRemoved = new ReturnObjectImpl(head.getValue());
             head = null;
             numberOfNodes--;
-            return elementRemoved;
         } else if (index == 0) {
             Node current = head;
-            ReturnObject elementRemoved = new ReturnObjectImpl(head.getValue());
+            elementRemoved = new ReturnObjectImpl(head.getValue());
             head = current.getNext();
             current.setNext(null);
             numberOfNodes--;
-            return elementRemoved;
         } else {
             current = head;
             nodeAt = 0;
@@ -110,14 +109,14 @@ public class LinkedList implements List {
                 current = current.getNext();
                 nodeAt++;
             }
-            ReturnObject elementRemoved = new ReturnObjectImpl(current.getNext().getValue());
+            elementRemoved = new ReturnObjectImpl(current.getNext().getValue());
             while (nodeAt < numberOfNodes) {
                 current.setNext(current.getNext());
                 nodeAt++;
             }
             numberOfNodes--;
-            return elementRemoved;
         }
+        return elementRemoved;
     }
     /**
      * Adds an element to the list, inserting it at the given

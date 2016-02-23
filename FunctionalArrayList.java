@@ -16,7 +16,7 @@ public class FunctionalArrayList extends ArrayList implements FunctionalList {
 	@Override
 	public ReturnObject head () {
 		ReturnObject objectToReturn;
-		if (numberOfItems == 0) {
+		if (size() == 0) {
 			objectToReturn = new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
 		} else {
 			objectToReturn = new ReturnObjectImpl(this.get(0).getReturnValue());
