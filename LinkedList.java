@@ -26,8 +26,8 @@ public class LinkedList implements List {
                 return this.next;
             }
         public void setNext (Node nxt) {
-                this.next = nxt;
-            }
+            this.next = nxt;
+        }
     }
     /**
      * @return true if the list is empty, false otherwise.
