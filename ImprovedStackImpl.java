@@ -4,10 +4,6 @@
 public class ImprovedStackImpl implements ImprovedStack {
     private Stack internalList;
 
-    public ImprovedStackImpl() {
-        internalList = new StackImpl(new ArrayList());
-    }
-
     public ImprovedStackImpl(List list) {
         internalList = new StackImpl(list);
     }
