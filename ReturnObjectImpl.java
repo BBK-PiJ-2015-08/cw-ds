@@ -24,7 +24,6 @@ public class ReturnObjectImpl implements ReturnObject {
 	}
 
 	/**
-	 * Returns whether there has been an error
 	 * @return whether there has been an error
 	 */
 	@Override
@@ -32,8 +31,6 @@ public class ReturnObjectImpl implements ReturnObject {
 		return err != ErrorMessage.NO_ERROR;
 	}
 	/**
-	 * Returns the error message.
-	 *
 	 * This method must return NO_ERROR if and only if
 	 * {@hasError} returns false.
 	 *

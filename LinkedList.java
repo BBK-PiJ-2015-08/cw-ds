@@ -30,7 +30,6 @@ public class LinkedList implements List {
         numberOfNodes = 0;
     }
     /**
-     * Returns true if the list is empty, false otherwise.
      * @return true if the list is empty, false otherwise.
      */
     @Override
@@ -38,7 +37,6 @@ public class LinkedList implements List {
         return size() == 0;
     }
     /**
-     * Returns the number of items currently in the list.
      * @return the number of items currently in the list
      */
     @Override

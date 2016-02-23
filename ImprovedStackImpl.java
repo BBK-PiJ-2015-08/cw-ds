@@ -1,35 +1,14 @@
 /**
- * An implementation of a stack with additional methods.
- *
- * Must use a {@see List} as the underlying data structure to store
- * the elements on the stack.
- *
- * Not all operations on a stack will always be successful. For
- * example, a programmer may try to pop an element from an empty
- * stack. Since we have not covered exceptions yet, we need another
- * mechanism to report errors. In order to do that, methods of this
- * list will return a {@see ReturnObject} that will contain either an
- * object or an error value of the right kind (as defined in {@see
- * ErrorMessage}).
- * This class must have only one constructor with only one parameter
- of type List.
- */
-
-/**
  * @author Jade Dickinson jdicki04
  */
 public class ImprovedStackImpl implements ImprovedStack {
     protected Stack internalList;
-    
+
     public ImprovedStackImpl(List list) {
         internalList = new StackImpl(list);
     }
 
     /**
-     * Returns a copy of this stack with the items reversed, the top
-     * elements on the original stack is at the bottom of the new
-     * stack and viceversa.
-     *
      * @return a copy of this stack with the items reversed.
      */
     @Override
@@ -69,8 +48,6 @@ public class ImprovedStackImpl implements ImprovedStack {
         }
     }
     /**
-     * Returns true if the stack is empty, false otherwise.
-     *
      * @return true if the stack is empty, false otherwise.
      */
     @Override
@@ -78,8 +55,6 @@ public class ImprovedStackImpl implements ImprovedStack {
         return internalList.isEmpty();
     }
     /**
-     * Returns the number of items currently in the stack.
-     *
      * @return the number of items currently in the stack
      */
     @Override
