@@ -2,11 +2,12 @@
  * @author Jade Dickinson jdicki04
  */
 public class LinkedList implements List {
-    protected int nodeAt;
-    protected int numberOfNodes;
-    protected Node head;
-    protected Node current;
-    protected final static int onlyOneNode = 1;
+    private int nodeAt;
+    private int numberOfNodes;
+    private Node head;
+    private Node current;
+    private Node storedNode;
+    private final static int onlyOneNode = 1;
 
     public LinkedList() {
         head = null;
@@ -177,7 +178,7 @@ public class LinkedList implements List {
         if (item == null) {
             return new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
         } else {
-            Node storedNode = new Node(item);
+            storedNode = new Node(item);
             if (head == null) {
                 head = storedNode;
                 numberOfNodes++;
