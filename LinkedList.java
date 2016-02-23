@@ -7,7 +7,7 @@ public class LinkedList implements List {
     protected Node head;
     protected Node current;
     protected Node storedNode;
-    private final static int onlyOneNode = 1;
+    private final static int ONLYONENODE = 1;
 
     public LinkedList() {
         head = null;
@@ -82,7 +82,7 @@ public class LinkedList implements List {
             elementRemoved = new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
         } else if (index < 0 || index>=numberOfNodes) {
             elementRemoved = new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
-        } else if (numberOfNodes == onlyOneNode) {
+        } else if (numberOfNodes == ONLYONENODE) {
             elementRemoved = new ReturnObjectImpl(head.getValue());
             head = null;
             numberOfNodes--;

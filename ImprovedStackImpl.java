@@ -73,9 +73,7 @@ public class ImprovedStackImpl implements ImprovedStack {
      */
     @Override
     public void push(Object item) {
-        if (item != null) {
-            internalList.push(item);
-        }
+        internalList.push(item);
     }
 
     /**

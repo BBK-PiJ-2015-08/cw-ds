@@ -5,7 +5,7 @@ public class ArrayList implements List {
 	private Object[] intArray;
 	private final static int DEFAULT_SIZE = 32;
 	private int max = 32;
-	private int numberOfItems = 0;
+	private int numberOfItems;
 
 	public ArrayList() {
 		intArray = new Object[DEFAULT_SIZE];
