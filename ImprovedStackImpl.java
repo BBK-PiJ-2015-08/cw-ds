@@ -81,11 +81,7 @@ public class ImprovedStackImpl implements ImprovedStack {
      */
     @Override
     public ReturnObject top() {
-        if (internalList.isEmpty()) {
-            return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
-        } else {
-            return internalList.top();
-        }
+        return internalList.top();
     }
 
     /**
@@ -93,10 +89,6 @@ public class ImprovedStackImpl implements ImprovedStack {
      */
     @Override
     public ReturnObject pop() {
-        if (internalList.isEmpty()) {
-            return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
-        } else {
-            return this.internalList.pop();
-        }
+        return this.internalList.pop();
     }
 }
