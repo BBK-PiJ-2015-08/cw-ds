@@ -7,7 +7,7 @@ public class SampleableListImpl extends ArrayList implements SampleableList {
     }
 
     /**
-     * @return a list containing the first, third, fifth... items of this list or an empty list if the list is empty.
+     * @see SampleableList
      */
     @Override
     public SampleableList sample() {

@@ -11,16 +11,25 @@ public class ArrayList implements List {
 		intArray = new Object[DEFAULT_SIZE];
 	}
 
+	/**
+	 * @see List
+     */
 	@Override
 	public boolean isEmpty() {
 		return numberOfItems==0;
 	}
 
+	/**
+	 * @see List
+	 */
 	@Override
 	public int size() {
 		return numberOfItems;
 	}
 
+	/**
+	 * @see List
+	 */
 	@Override
 	public ReturnObject get(int index) {
 		if (index < 0 || index >= numberOfItems) {
@@ -30,6 +39,9 @@ public class ArrayList implements List {
 		}
 	}
 
+	/**
+	 * @see List
+	 */
 	@Override
 	public ReturnObject remove(int index) {
 		if (index < 0 || index >= numberOfItems) {
@@ -47,23 +59,9 @@ public class ArrayList implements List {
 			return itemRemoved;
 		}
 	}
+
 	/**
-	 * Adds an element to the list, inserting it at the given
-	 * position. The indices of elements at and after that position
-	 * must be updated accordingly.
-	 *
-	 * If the index is negative or greater or equal than the size of
-	 * the list, then an appropriate error must be returned.
-	 *
-	 * If a null object is provided to insert in the list, the
-	 * request must be ignored and an appropriate error must be
-	 * returned.
-	 *
-	 * @param index the position at which the item should be inserted in
-	 *              the list
-	 * @param item the value to insert into the list
-	 * @return an ReturnObject, empty if the operation is successful
-	 *         or containing an appropriate error message otherwise
+	 * @see List
 	 */
 	@Override
 	public ReturnObject add(int index, Object item) {
@@ -86,16 +84,9 @@ public class ArrayList implements List {
 			}
 		}
 	}
+
 	/**
-	 * Adds an element at the end of the list.
-	 *
-	 * If a null object is provided to insert in the list, the
-	 * request must be ignored and an appropriate error must be
-	 * returned.
-	 *
-	 * @param item the value to insert into the list
-	 * @return an ReturnObject, empty if the operation is successful
-	 *         or containing an appropriate error message otherwise
+	 * @see List
 	 */
 	@Override
 	public ReturnObject add(Object item) {

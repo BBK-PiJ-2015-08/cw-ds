@@ -13,7 +13,7 @@ public class ImprovedStackImpl implements ImprovedStack {
     }
 
     /**
-     * @return a copy of this stack with the items reversed.
+     * @see ImprovedStack
      */
     @Override
     public ImprovedStack reverse() {
@@ -31,11 +31,9 @@ public class ImprovedStackImpl implements ImprovedStack {
         }
         return (ImprovedStack) reversedList;
     }
-    /** Removes the given object from the stack if it is there. Multiple
-     * instances of the object are all removed.
-     * Classes implementing this method must use method .equals() to check
-     * whether the item is in the stack or not.
-     * @param object the object to remove
+
+    /**
+     * @see ImprovedStack
      */
     @Override
     public void remove(Object object) {
@@ -53,24 +51,25 @@ public class ImprovedStackImpl implements ImprovedStack {
             }
         }
     }
+
     /**
-     * @return true if the stack is empty, false otherwise.
+     * @see Stack
      */
     @Override
     public boolean isEmpty() {
         return internalList.isEmpty();
     }
+
     /**
-     * @return the number of items currently in the stack
+     * @see Stack
      */
     @Override
     public int size() {
         return internalList.size();
     }
+
     /**
-     * Adds an element at the top of the stack.
-     *
-     * @param item the new item to be added
+     * @see Stack
      */
     @Override
     public void push(Object item) {
@@ -78,12 +77,9 @@ public class ImprovedStackImpl implements ImprovedStack {
             internalList.push(item);
         }
     }
+
     /**
-     * Returns the element at the top of the stack. The stack is
-     * left unchanged.
-     *
-     * @return If stack is not empty, the item on the top is returned. If the
-     *         stack is empty, an appropriate error.
+     * @see Stack
      */
     @Override
     public ReturnObject top() {
@@ -93,12 +89,9 @@ public class ImprovedStackImpl implements ImprovedStack {
             return internalList.top();
         }
     }
+
     /**
-     * Returns the element at the top of the stack. The element is
-     * removed from the stack.
-     *
-     * @return If stack is not empty, the item on the top is returned. If the
-     *         stack is empty, an appropriate error.
+     * @see Stack
      */
     @Override
     public ReturnObject pop() {
