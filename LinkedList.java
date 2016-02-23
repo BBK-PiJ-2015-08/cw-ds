@@ -2,6 +2,25 @@
  * @author Jade Dickinson jdicki04
  */
 public class LinkedList implements List {
+
+    private class Node {
+        private Object obj;
+        private Node next;
+        public Node (Object obj) {
+            this.obj = obj;
+            this.next = null;
+        }
+        public Object getValue() {
+                return this.obj;
+            }
+        public Node getNext() {
+                return this.next;
+            }
+        public void setNext (Node nxt) {
+                this.next = nxt;
+            }
+    }
+
     protected int nodeAt;
     protected int numberOfNodes;
     protected Node head;
