@@ -89,6 +89,6 @@ public class ImprovedStackImpl implements ImprovedStack {
      */
     @Override
     public ReturnObject pop() {
-        return this.internalList.pop();
+        return internalList.pop();
     }
 }
