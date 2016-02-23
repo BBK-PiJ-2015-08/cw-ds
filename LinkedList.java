@@ -2,6 +2,14 @@
  * @author Jade Dickinson jdicki04
  */
 public class LinkedList implements List {
+    protected int nodeAt;
+    protected int numberOfNodes;
+    protected Node head;
+
+    public LinkedList() {
+        head = null;
+        numberOfNodes = 0;
+    }
 
     private class Node {
         private Object obj;
@@ -19,15 +27,6 @@ public class LinkedList implements List {
         public void setNext (Node nxt) {
                 this.next = nxt;
             }
-    }
-
-    protected int nodeAt;
-    protected int numberOfNodes;
-    protected Node head;
-
-    public LinkedList() {
-        head = null;
-        numberOfNodes = 0;
     }
     /**
      * @return true if the list is empty, false otherwise.
