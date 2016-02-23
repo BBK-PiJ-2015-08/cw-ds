@@ -13,7 +13,7 @@ public class ArrayList implements List {
 
 	@Override
 	public boolean isEmpty() {
-		return (numberOfItems==0);
+		return numberOfItems==0;
 	}
 
 	@Override
@@ -67,9 +67,9 @@ public class ArrayList implements List {
 	 */
 	@Override
 	public ReturnObject add(int index, Object item) {
-		if ((item == null)) {
+		if (item == null) {
 			return new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
-		} else if ((index%1) != 0) {
+		} else if (index%1 != 0) {
 			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
 		} else if (index < 0 || index>=(this.size())) {
 			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
