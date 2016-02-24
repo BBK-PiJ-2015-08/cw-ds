@@ -17,7 +17,7 @@ public class ArrayList implements List {
      */
 	@Override
 	public boolean isEmpty() {
-		return numberOfItems==0;
+		return size()==0;
 	}
 
 	/**
