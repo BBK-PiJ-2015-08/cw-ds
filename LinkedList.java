@@ -119,22 +119,22 @@ public class LinkedList implements List {
             return new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
         } else if (index < 0 || index > numberOfNodes) {
             return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
-        }
-        storageNode = new Node(item);
-        if (isEmpty()) {
-            head = storageNode;
-            numberOfNodes++;
-            return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
         } else {
-            nodeAt = 0;
-            current = head;
-            while (nodeAt < index - 1) {
-                current = current.getNext();
-                nodeAt++;
+            storageNode = new Node(item);
+            if (isEmpty()) {
+                head = storageNode;
+                numberOfNodes++;
+            } else {
+                nodeAt = 0;
+                current = head;
+                while (nodeAt < index - 1) {
+                    current = current.getNext();
+                    nodeAt++;
+                }
+                storageNode.setNext(current.getNext());
+                current.setNext(storageNode);
+                numberOfNodes++;
             }
-            storageNode.setNext(current.getNext());
-            current.setNext(storageNode);
-            numberOfNodes++;
             return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
         }
     }
