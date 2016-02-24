@@ -7,6 +7,7 @@ public class LinkedList implements List {
     protected Node head;
     protected Node current;
     protected Node storedNode;
+    protected Node storageNode;
     private final static int ONLYONENODE = 1;
 
     public LinkedList() {
@@ -60,7 +61,7 @@ public class LinkedList implements List {
             if (index < 0 || index >= numberOfNodes) {
                 elementGotOrError = new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
             } else {
-                Node current = head;
+                current = head;
                 nodeAt = 0;
                 while (nodeAt < index) {
                     current = current.getNext();
@@ -87,7 +88,7 @@ public class LinkedList implements List {
             head = null;
             numberOfNodes--;
         } else if (index == 0) {
-            Node current = head;
+            current = head;
             elementRemoved = new ReturnObjectImpl(head.getValue());
             head = current.getNext();
             current.setNext(null);
@@ -119,14 +120,14 @@ public class LinkedList implements List {
         } else if (index < 0 || index > numberOfNodes) {
             return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
         }
-        Node storageNode = new Node(item);
+        storageNode = new Node(item);
         if (isEmpty()) {
             head = storageNode;
             numberOfNodes++;
             return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
         } else {
             nodeAt = 0;
-            Node current = head;
+            current = head;
             while (nodeAt < index - 1) {
                 current = current.getNext();
                 nodeAt++;
@@ -151,7 +152,7 @@ public class LinkedList implements List {
                 head = storedNode;
                 numberOfNodes++;
             } else {
-                Node current = head;
+                current = head;
                 while (current.getNext() != null) {
                     current = current.getNext();
                 }
