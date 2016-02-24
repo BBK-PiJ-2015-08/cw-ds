@@ -2,6 +2,9 @@
  * @author Jade Dickinson jdicki04
  */
 public class FunctionalArrayList extends ArrayList implements FunctionalList {
+	public FunctionalArrayList() {
+
+	}
 	/**
 	 * @see FunctionalList
 	 */

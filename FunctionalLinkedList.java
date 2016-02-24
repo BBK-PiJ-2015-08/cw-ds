@@ -2,6 +2,9 @@
  * @author Jade Dickinson jdicki04
  */
 public class FunctionalLinkedList extends LinkedList implements FunctionalList {
+    public FunctionalLinkedList() {
+
+    }
     /**
      * Returns the element at the beginning of the list.
      *
