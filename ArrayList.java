@@ -2,13 +2,13 @@
  * @author Jade Dickinson jdicki04
  */
 public class ArrayList implements List {
-	private Object[] intArray;
+	private Object[] internalArray;
 	private final static int DEFAULT_SIZE = 32;
 	private int max = 32;
 	private int numberOfItems;
 
 	public ArrayList() {
-		intArray = new Object[DEFAULT_SIZE];
+		internalArray = new Object[DEFAULT_SIZE];
 	}
 
 	/**
@@ -35,7 +35,7 @@ public class ArrayList implements List {
 		if (index < 0 || index >= numberOfItems) {
 			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
 		} else {
-			return new ReturnObjectImpl(intArray[index]);
+			return new ReturnObjectImpl(internalArray[index]);
 		}
 	}
 
@@ -49,12 +49,12 @@ public class ArrayList implements List {
 		} else if (this.isEmpty()) {
 			return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
 		} else {
-			ReturnObject itemRemoved = new ReturnObjectImpl(intArray[index]);
+			ReturnObject itemRemoved = new ReturnObjectImpl(internalArray[index]);
 			int shiftUpPoint = index + 1;
 			for (int i = shiftUpPoint ; i<numberOfItems; i++) {
-				intArray[i-1] = intArray[i];
+				internalArray[i-1] = internalArray[i];
 			}
-			intArray[numberOfItems] = null;
+			internalArray[numberOfItems] = null;
 			numberOfItems--;
 			return itemRemoved;
 		}
@@ -76,9 +76,9 @@ public class ArrayList implements List {
 				}
 				int j = numberOfItems - 1;
 				for (int pos = j; pos >= index; pos--) {
-					intArray[pos + 1] = intArray[pos];
+					internalArray[pos + 1] = internalArray[pos];
 				}
-				intArray[index] = item;
+				internalArray[index] = item;
 				numberOfItems++;
 				return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
 			}
@@ -97,7 +97,7 @@ public class ArrayList implements List {
 			if (numberOfItems >= max) {
 				increaseSizeTwofold();
 			}
-			this.intArray[numberOfItems] = item;
+			this.internalArray[numberOfItems] = item;
 			numberOfItems++;
 			return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
 		}
@@ -107,8 +107,8 @@ public class ArrayList implements List {
 		max = max * 2;
 		Object[] storageArray = new Object[max];
 		for (int k=0; k<numberOfItems; k++) {
-			storageArray[k] = this.intArray[k];
+			storageArray[k] = this.internalArray[k];
 		}
-		intArray = storageArray;
+		internalArray = storageArray;
 	}
 }
