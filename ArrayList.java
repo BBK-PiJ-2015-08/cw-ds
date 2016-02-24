@@ -33,13 +33,15 @@ public class ArrayList implements List {
 	 */
 	@Override
 	public ReturnObject get(int index) {
+		ReturnObject alElementGotOrError;
 		if (isEmpty()) {
-			return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
+			alElementGotOrError = new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
 		} else if (index < 0 || index >= size()) {
-			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
+			alElementGotOrError = new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
 		} else {
-			return new ReturnObjectImpl(internalArray[index]);
+			alElementGotOrError = new ReturnObjectImpl(internalArray[index]);
 		}
+		return alElementGotOrError;
 	}
 
 	/**
@@ -47,13 +49,13 @@ public class ArrayList implements List {
 	 */
 	@Override
 	public ReturnObject remove(int index) {
-		ReturnObject itemRemoved;
+		ReturnObject alElementRemoved;
 		if (index < 0 || index >= size()) {
-			itemRemoved = new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
+			alElementRemoved = new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
 		} else if (this.isEmpty()) {
-			itemRemoved = new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
+			alElementRemoved = new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
 		} else {
-			itemRemoved = new ReturnObjectImpl(internalArray[index]);
+			alElementRemoved = new ReturnObjectImpl(internalArray[index]);
 			int shiftUpPoint = index + 1;
 			for (int i = shiftUpPoint ; i<size(); i++) {
 				internalArray[i-1] = internalArray[i];
@@ -61,7 +63,7 @@ public class ArrayList implements List {
 			internalArray[numberOfItems] = null;
 			numberOfItems--;
 		}
-		return itemRemoved;
+		return alElementRemoved;
 	}
 
 	/**
@@ -69,11 +71,12 @@ public class ArrayList implements List {
 	 */
 	@Override
 	public ReturnObject add(int index, Object item) {
+		ReturnObject alResultAddingToGivenIndex;
 		if (item == null) {
-			return new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
+			alResultAddingToGivenIndex = new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
 		} else {
 			if (index < 0 || index >= (this.size())) {
-				return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
+				alResultAddingToGivenIndex = new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
 			} else {
 				if (numberOfItems >= max) {
 					increaseSizeTwofold();
@@ -84,9 +87,10 @@ public class ArrayList implements List {
 				}
 				internalArray[index] = item;
 				numberOfItems++;
-				return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
+				alResultAddingToGivenIndex = new ReturnObjectImpl(ErrorMessage.NO_ERROR);
 			}
 		}
+		return alResultAddingToGivenIndex;
 	}
 
 	/**
@@ -94,8 +98,9 @@ public class ArrayList implements List {
 	 */
 	@Override
 	public ReturnObject add(Object item) {
+		ReturnObject alResultAddingToEndList;
 		if (item == null) {
-			return new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
+			alResultAddingToEndList = new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
 		}
 		else {
 			if (numberOfItems >= max) {
@@ -103,8 +108,9 @@ public class ArrayList implements List {
 			}
 			this.internalArray[numberOfItems] = item;
 			numberOfItems++;
-			return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
+			alResultAddingToEndList = new ReturnObjectImpl(ErrorMessage.NO_ERROR);
 		}
+		return alResultAddingToEndList;
 	}
 
 	public void increaseSizeTwofold() {

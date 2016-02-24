@@ -54,12 +54,12 @@ public class LinkedList implements List {
      */
     @Override
     public ReturnObject get(int index) {
-        ReturnObject elementGotOrError;
+        ReturnObject llElementGotOrError;
         if (isEmpty()) {
-            elementGotOrError = new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
+            llElementGotOrError = new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
         } else {
             if (index < 0 || index >= numberOfNodes) {
-                elementGotOrError = new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
+                llElementGotOrError = new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
             } else {
                 current = head;
                 nodeAt = 0;
@@ -67,10 +67,10 @@ public class LinkedList implements List {
                     current = current.getNext();
                     nodeAt++;
                 }
-                elementGotOrError = new ReturnObjectImpl(current.getValue());
+                llElementGotOrError = new ReturnObjectImpl(current.getValue());
             }
         }
-        return elementGotOrError;
+        return llElementGotOrError;
     }
 
     /**
@@ -78,18 +78,18 @@ public class LinkedList implements List {
      */
     @Override
     public ReturnObject remove(int index) {
-        ReturnObject elementRemoved;
+        ReturnObject llElementRemoved;
         if (isEmpty()) {
-            elementRemoved = new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
+            llElementRemoved = new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
         } else if (index < 0 || index>=numberOfNodes) {
-            elementRemoved = new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
+            llElementRemoved = new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
         } else if (numberOfNodes == ONLYONENODE) {
-            elementRemoved = new ReturnObjectImpl(head.getValue());
+            llElementRemoved = new ReturnObjectImpl(head.getValue());
             head = null;
             numberOfNodes--;
         } else if (index == 0) {
             current = head;
-            elementRemoved = new ReturnObjectImpl(head.getValue());
+            llElementRemoved = new ReturnObjectImpl(head.getValue());
             head = current.getNext();
             current.setNext(null);
             numberOfNodes--;
@@ -100,14 +100,14 @@ public class LinkedList implements List {
                 current = current.getNext();
                 nodeAt++;
             }
-            elementRemoved = new ReturnObjectImpl(current.getNext().getValue());
+            llElementRemoved = new ReturnObjectImpl(current.getNext().getValue());
             while (nodeAt < numberOfNodes) {
                 current.setNext(current.getNext());
                 nodeAt++;
             }
             numberOfNodes--;
         }
-        return elementRemoved;
+        return llElementRemoved;
     }
 
     /**
@@ -115,10 +115,11 @@ public class LinkedList implements List {
      */
     @Override
     public ReturnObject add(int index, Object item) {
+        ReturnObject llResultAddingToGivenIndex;
         if (item == null) {
-            return new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
+            llResultAddingToGivenIndex = new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
         } else if (index < 0 || index > numberOfNodes) {
-            return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
+            llResultAddingToGivenIndex = new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
         } else {
             storageNode = new Node(item);
             if (isEmpty()) {
@@ -135,8 +136,9 @@ public class LinkedList implements List {
                 current.setNext(storageNode);
                 numberOfNodes++;
             }
-            return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
+            llResultAddingToGivenIndex = new ReturnObjectImpl(ErrorMessage.NO_ERROR);
         }
+        return llResultAddingToGivenIndex;
     }
 
     /**
@@ -144,8 +146,9 @@ public class LinkedList implements List {
      */
     @Override
     public ReturnObject add(Object item) {
+        ReturnObject llResultAddingToEndList;
         if (item == null) {
-            return new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
+            llResultAddingToEndList = new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
         } else {
             storedNode = new Node(item);
             if (head == null) {
@@ -159,7 +162,8 @@ public class LinkedList implements List {
                 current.setNext(storedNode);
                 numberOfNodes++;
             }
-            return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
+            llResultAddingToEndList = new ReturnObjectImpl(ErrorMessage.NO_ERROR);
         }
+        return llResultAddingToEndList;
     }
 }

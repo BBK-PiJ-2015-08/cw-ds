@@ -12,11 +12,13 @@ public class FunctionalLinkedList extends LinkedList implements FunctionalList {
      */
     @Override
     public ReturnObject head() {
+        ReturnObject headElementOrError;
         if (isEmpty()) {
-            return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
+            headElementOrError = new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
         } else {
-            return new ReturnObjectImpl(get(0).getReturnValue());
+            headElementOrError = new ReturnObjectImpl(get(0).getReturnValue());
         }
+        return headElementOrError;
     }
     /**
      * Returns a list with the elements in this list except the
