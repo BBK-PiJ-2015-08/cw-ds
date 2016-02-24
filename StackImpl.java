@@ -47,9 +47,7 @@ public class StackImpl extends AbstractStack {
      */
     @Override
     public void push(Object item) {
-        if (item != null) {
-            internalList.add(item);
-        }
+        internalList.add(item);
     }
 
     /**
