@@ -15,7 +15,7 @@ public class FunctionalLinkedList extends LinkedList implements FunctionalList {
         if (isEmpty()) {
             return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
         } else {
-            return new ReturnObjectImpl(head.getValue());
+            return new ReturnObjectImpl(get(0).getReturnValue());
         }
     }
     /**
@@ -28,16 +28,11 @@ public class FunctionalLinkedList extends LinkedList implements FunctionalList {
     @Override
     public FunctionalList rest() {
         FunctionalLinkedList storageFLL = new FunctionalLinkedList();
-        if (isEmpty()) {
-            return storageFLL;
-        } else {
-            current = head.getNext();
-            storageFLL.add(current.getValue());
-            while (current.getNext() != null) {
-                current = current.getNext();
-                storageFLL.add(current.getValue());
+        if (!isEmpty()) {
+            for(int i = 0; i<size(); i++) {
+                storageFLL.add(get(i).getReturnValue());
             }
-            return storageFLL;
         }
+        return storageFLL;
     }
 }
