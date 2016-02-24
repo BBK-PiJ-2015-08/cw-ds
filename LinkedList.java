@@ -4,10 +4,10 @@
 public class LinkedList implements List {
     private int nodeAt;
     private int numberOfNodes;
-    protected Node head;
-    protected Node current;
-    protected Node storedNode;
-    protected Node storageNode;
+    private Node head;
+    private Node current;
+    private Node storedNode;
+    private Node storageNode;
     private final static int ONLYONENODE = 1;
 
     public LinkedList() {
