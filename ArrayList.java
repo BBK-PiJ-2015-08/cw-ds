@@ -33,7 +33,9 @@ public class ArrayList implements List {
 	 */
 	@Override
 	public ReturnObject get(int index) {
-		if (index < 0 || index >= numberOfItems) {
+		if (isEmpty()) {
+			return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
+		} else if (index < 0 || index >= numberOfItems) {
 			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
 		} else {
 			return new ReturnObjectImpl(internalArray[index]);
