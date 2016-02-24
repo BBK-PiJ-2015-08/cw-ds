@@ -9,6 +9,7 @@ public class ArrayList implements List {
 
 	public ArrayList() {
 		internalArray = new Object[DEFAULT_SIZE];
+		numberOfItems = 0;
 	}
 
 	/**
