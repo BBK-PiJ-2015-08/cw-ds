@@ -47,20 +47,21 @@ public class ArrayList implements List {
 	 */
 	@Override
 	public ReturnObject remove(int index) {
+		ReturnObject itemRemoved;
 		if (index < 0 || index >= size()) {
-			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
+			itemRemoved = new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
 		} else if (this.isEmpty()) {
-			return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
+			itemRemoved = new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
 		} else {
-			ReturnObject itemRemoved = new ReturnObjectImpl(internalArray[index]);
+			itemRemoved = new ReturnObjectImpl(internalArray[index]);
 			int shiftUpPoint = index + 1;
 			for (int i = shiftUpPoint ; i<size(); i++) {
 				internalArray[i-1] = internalArray[i];
 			}
 			internalArray[numberOfItems] = null;
 			numberOfItems--;
-			return itemRemoved;
 		}
+		return itemRemoved;
 	}
 
 	/**
