@@ -35,7 +35,7 @@ public class ArrayList implements List {
 	public ReturnObject get(int index) {
 		if (isEmpty()) {
 			return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
-		} else if (index < 0 || index >= numberOfItems) {
+		} else if (index < 0 || index >= size()) {
 			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
 		} else {
 			return new ReturnObjectImpl(internalArray[index]);
@@ -47,14 +47,14 @@ public class ArrayList implements List {
 	 */
 	@Override
 	public ReturnObject remove(int index) {
-		if (index < 0 || index >= numberOfItems) {
+		if (index < 0 || index >= size()) {
 			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
 		} else if (this.isEmpty()) {
 			return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
 		} else {
 			ReturnObject itemRemoved = new ReturnObjectImpl(internalArray[index]);
 			int shiftUpPoint = index + 1;
-			for (int i = shiftUpPoint ; i<numberOfItems; i++) {
+			for (int i = shiftUpPoint ; i<size(); i++) {
 				internalArray[i-1] = internalArray[i];
 			}
 			internalArray[numberOfItems] = null;
